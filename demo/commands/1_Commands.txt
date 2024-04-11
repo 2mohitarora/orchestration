@@ -1,0 +1,36 @@
+#mesh
+    # Modify consul client and server config to enable consul connect 
+    # Install CNI plugin on Nomad clients 
+    # Discuss Updated jobs 
+    # Add a new worker with java node pool 
+
+# On Mac wget https://docs.google.com/uc?export=download&id=1cSuFFZCQKYSnmo7-OUnTBSnm8MmTkxs8 -O urlshortener:0.0.1-SNAPSHOT.jar
+
+-----------
+nomad job run -address=http://198.19.249.156:4646 -region=east java-web.hcl
+
+# Check tags
+# Check where it got allocated and run http://198.19.249.37:9090/urlShortener/test
+# Check ps -ef
+# Check healthcheck http://198.19.249.37:9090/actuator/health 
+# Check healthcheck in Consul 
+
+sudo resolvectl query java-web-svc.service.consul
+
+nomad job run -address=http://198.19.249.156:4646 -region=west java-web.hcl
+sudo resolvectl query java-web-svc.service.consul
+
+# Reallocate redis and see how job restarts 
+# Enter key value pairs 
+
+
+#Vault
+#namespaces
+#ingress (API Gateway), egress gateway and mesh gateway
+#scaling
+#Intentions
+#ACL
+    #Tokens
+    #Policies
+    #Roles 
+    #Auth Methods
