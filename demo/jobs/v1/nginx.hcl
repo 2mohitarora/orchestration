@@ -12,6 +12,7 @@ job "nginx" {
     service {
       name = "nginx"
       port = "http"
+      tags = ["nginx", "lb"]
 
       check {
         type     = "http"

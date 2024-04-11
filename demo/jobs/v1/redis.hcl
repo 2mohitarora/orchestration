@@ -12,6 +12,7 @@ job "pytechco-redis" {
     service {
       name     = "redis-svc"
       port     = "redis"
+      tags = ["redis"]
       provider = "consul"
       check {
         name     = "redis_probe"

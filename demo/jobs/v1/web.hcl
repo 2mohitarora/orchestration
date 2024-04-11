@@ -12,6 +12,7 @@ job "pytechco-web" {
     service {
       name     = "web-svc"
       port     = "web"
+      tags = ["python", "web"]
       provider = "consul"
       
       check {
