@@ -6,6 +6,7 @@ job "java-web" {
   group "java-web" {
     count = 1
     network {
+      mode = "bridge"
       port "http" {
         static = 9090
       }
@@ -26,17 +27,28 @@ job "java-web" {
         interval = "2s"
         timeout  = "1s"
       }
+
+      connect {
+        sidecar_service {
+          proxy {
+            upstreams {
+              destination_name = "redis-svc"
+              local_bind_port  = 6379
+            }
+          }
+        }
+      }
     }
 
     task "java-web" {
       env {
         PORT    = "${NOMAD_PORT_http}"
         NODE_IP = "${NOMAD_IP_http}"
+        SPRING_DATA_REDIS_HOST = "${NOMAD_UPSTREAM_IP_redis_svc}"
+        SPRING_DATA_REDIS_PORT = "${NOMAD_UPSTREAM_PORT_redis_svc}"
       }
       template {
         data = <<EOH
-SPRING_DATA_REDIS_HOST = "{{ range service "redis-svc" }}{{ .Address }}{{ end }}"
-SPRING_DATA_REDIS_PORT = "{{ range service "redis-svc" }}{{ .Port }}{{ end }}"
 {{ range tree "config/java-web-svc" }}
 {{ .Key }}={{ .Value }}
 {{ end }}

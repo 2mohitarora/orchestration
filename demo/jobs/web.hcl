@@ -35,9 +35,6 @@ job "pytechco-web" {
     }
 
     task "ptc-web-task" {
-      # Retrieves the .Address and .Port connection values for
-      # redis-svc with nomadService and saves them to env vars
-      # REFRESH_INTERVAL is how often the UI refreshes in milliseconds
       template {
         data        = <<EOH
 FLASK_HOST=0.0.0.0
