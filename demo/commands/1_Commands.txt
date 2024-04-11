@@ -2,7 +2,7 @@
     # Modify consul client and server config to enable consul connect 
     # Install CNI plugin on Nomad clients 
     # Discuss Updated jobs 
-    # Add a new worker with java node pool 
+    # Add a new worker with java node pool node_pool = "java" and check in UI
 
 # On Mac wget https://docs.google.com/uc?export=download&id=1cSuFFZCQKYSnmo7-OUnTBSnm8MmTkxs8 -O urlshortener:0.0.1-SNAPSHOT.jar
 
@@ -23,7 +23,8 @@ sudo resolvectl query java-web-svc.service.consul
 # Reallocate redis and see how job restarts 
 # Enter key value pairs 
 
-
+# Interesting observation when it came to service mesh, Java web app couldn't talk to redis without mesh 
+------TODO------
 #Vault
 #namespaces
 #ingress (API Gateway), egress gateway and mesh gateway
