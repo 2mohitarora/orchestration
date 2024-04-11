@@ -75,6 +75,7 @@ sudo systemctl enable nomad
 sudo systemctl start nomad
 sudo systemctl status nomad
 //========Setup===============
+//----CNI Plugin only on clients-------
 Install CNI plugin as per https://developer.hashicorp.com/nomad/docs/install#post-installation-steps 
 
 cd /tmp
