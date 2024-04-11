@@ -36,7 +36,7 @@ job "java-web" {
       }
       template {
         data = <<EOH
- SPRING_DATA_REDIS_HOST = "{{ range service "redis-svc" }}{{ .Address }}{{ end }}"
+SPRING_DATA_REDIS_HOST = "{{ range service "redis-svc" }}{{ .Address }}{{ end }}"
 SPRING_DATA_REDIS_PORT = "{{ range service "redis-svc" }}{{ .Port }}{{ end }}"
 {{ range tree "config/java-web-svc" }}
 {{ .Key }}={{ .Value }}
