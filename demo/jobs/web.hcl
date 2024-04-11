@@ -4,6 +4,7 @@ job "pytechco-web" {
   group "ptc-web" {
     count = 3
     network {
+      mode = "bridge"
       port "web" {
         static = 5000
       }
@@ -20,6 +21,16 @@ job "pytechco-web" {
         path     = "/"
         interval = "2s"
         timeout  = "2s"
+      }
+      connect {
+        sidecar_service {
+          proxy {
+            upstreams {
+              destination_name = "redis-svc"
+              local_bind_port  = 8080
+            }
+          }
+        }
       }
     }
 

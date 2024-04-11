@@ -21,6 +21,7 @@ sudo resolvectl query java-web-svc.service.consul
 #mesh
     # Modify consul client config to enable consul connect 
     # Install CNI plugin on Nomad clients 
+    # Updated jobs 
 #Vault
 #namespaces
 #ingress (API Gateway), egress gateway and mesh gateway

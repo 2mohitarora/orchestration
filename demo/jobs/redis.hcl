@@ -4,6 +4,7 @@ job "pytechco-redis" {
   group "ptc-redis" {
     count = 1
     network {
+      mode = "bridge"
       port "redis" {
         to = 6379
       }
@@ -14,11 +15,9 @@ job "pytechco-redis" {
       tags = ["redis"]
       port     = "redis"
       provider = "consul"
-      check {
-        name     = "redis_probe"
-        type     = "tcp"
-        interval = "10s"
-        timeout  = "1s"
+      connect {
+        sidecar_service {
+        }
       }
     }
 
