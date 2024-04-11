@@ -20,6 +20,12 @@ job "nginx" {
         interval = "2s"
         timeout  = "2s"
       }
+      check {
+        type     = "http"
+        path     = "/actuator/health"
+        interval = "2s"
+        timeout  = "2s"
+      }
       connect {
         sidecar_service {
           proxy {
@@ -54,9 +60,18 @@ upstream backend {
 {{ end }}
 }
 
+upstream java-backend {
+{{ range service "java-web-svc" }}
+  server {{ .Address }}:{{ .Port }};
+{{ else }}server 127.0.0.1:65535; # force a 502
+{{ end }}
+}
+
 server {
    listen 8080;
-
+   location /actuator/health {
+      proxy_pass http://java-backend;
+   }
    location / {
       proxy_pass http://backend;
    }

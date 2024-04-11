@@ -24,6 +24,8 @@ sudo resolvectl query java-web-svc.service.consul
 # Enter key value pairs 
 
 # Interesting observation when it came to service mesh, Java web app couldn't talk to redis without mesh 
+
+# Take a moment to see cross service mesh working
 ------TODO------
 #Vault
 #namespaces
