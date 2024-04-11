@@ -10,6 +10,12 @@ sudo chmod 640 /etc/consul.d/consul.hcl
 datacenter = "east"
 data_dir = "/opt/consul"
 encrypt = "4Ox5PVb2MKOGsYSC3WKH6mFHH22g6nR12NRoWJ5zJps="
+ports {
+  grpc = 8502
+}
+connect {
+  enabled = true
+}
 -------------
 sudo touch /etc/consul.d/server.hcl
 sudo chmod 640 /etc/consul.d/server.hcl
@@ -26,12 +32,6 @@ sudo touch /etc/consul.d/client.hcl
 sudo chmod 640 /etc/consul.d/client.hcl
 
 bind_addr = "{{ GetInterfaceIP `eth0` }}"
-ports {
-  grpc = 8502
-}
-connect {
-  enabled = true
-}
 ---------------Jump boxes-----
 //DNS Magic 
 sudo apt-get install dnsutils
