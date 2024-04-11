@@ -1,0 +1,10 @@
+{
+    "Name": "nginx",
+    "Service": {
+      "Service": "nginx",
+      "Failover": {
+        "NearestN": 2
+      }
+    }
+  }
+  

@@ -1,0 +1,3 @@
+nomad job run jobs/cli-jobs/petclinic-ingw.nomad
+chmod +x launch-fabio-lb.sh
+./launch-fabio-lb.sh

@@ -1,0 +1,92 @@
+sudo apt-get update && sudo apt-get install consul
+
+//NOTE You will need to add the newly generated key to the encrypt option in the configuration on all Consul clients and servers.
+consul keygen
+
+//========Server Setup===============
+sudo touch /etc/consul.d/consul.hcl
+sudo chmod 640 /etc/consul.d/consul.hcl
+
+datacenter = "east"
+data_dir = "/opt/consul"
+encrypt = "4Ox5PVb2MKOGsYSC3WKH6mFHH22g6nR12NRoWJ5zJps="
+-------------
+sudo touch /etc/consul.d/server.hcl
+sudo chmod 640 /etc/consul.d/server.hcl
+
+server = true
+bootstrap_expect = 3
+ui_config {
+  enabled = true
+}
+bind_addr = "{{ GetInterfaceIP `eth0` }}"
+client_addr = "0.0.0.0"
+---------------
+sudo touch /etc/consul.d/client.hcl
+sudo chmod 640 /etc/consul.d/client.hcl
+
+bind_addr = "{{ GetInterfaceIP `eth0` }}"
+ports {
+  grpc = 8502
+}
+connect {
+  enabled = true
+}
+---------------Jump boxes-----
+//DNS Magic 
+sudo apt-get install dnsutils
+sudo mkdir -p /etc/systemd/resolved.conf.d
+sudo touch /etc/systemd/resolved.conf.d/consul.conf
+
+[Resolve]
+DNS=127.0.0.1:8600
+DNSSEC=false
+Domains=~consul
+
+
+//Will this survive reboot
+sudo systemctl restart systemd-resolved
+
+//if error
+sudo systemctl unmask systemd-resolved
+sudo systemctl restart systemd-resolved
+
+//Test
+sudo systemctl is-active systemd-resolved
+sudo resolvectl status
+sudo resolvectl domain
+sudo resolvectl query consul.service.consul
+---------------
+
+//Install Service
+sudo touch /etc/systemd/system/consul.service
+
+[Unit]
+Description="HashiCorp Consul - A service mesh solution"
+Documentation=https://www.consul.io/
+Requires=network-online.target
+After=network-online.target
+ConditionFileNotEmpty=/etc/consul.d/consul.hcl
+
+[Service]
+EnvironmentFile=-/etc/consul.d/consul.env
+ExecStart=/usr/bin/consul agent -config-dir=/etc/consul.d/
+ExecReload=/bin/kill --signal HUP $MAINPID
+KillMode=process
+KillSignal=SIGTERM
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+
+//Validate
+sudo consul validate /etc/consul.d/
+sudo systemctl enable consul
+sudo systemctl start consul
+//========Server Setup===============
+Join Cluster in the end
+Join cluster over wan  
+//========Client Setup===============
+Join cluster in the end
+//========Client Setup===============

@@ -1,0 +1,6 @@
+//Only on node 4 in client section
+//Check in UI
+node_pool = "dev"
+//Install Java
+sudo apt install default-jre
+java -version
