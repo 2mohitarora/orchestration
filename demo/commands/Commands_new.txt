@@ -20,7 +20,7 @@ sudo resolvectl query java-web-svc.service.consul
 nomad job run -address=http://198.19.249.156:4646 -region=west java-web.hcl
 sudo resolvectl query java-web-svc.service.consul
 
-# Reallocate redis and see how java web job restarts 
+# Reallocate redis and see how job restarts 
 # Enter key value pairs 
 
 
