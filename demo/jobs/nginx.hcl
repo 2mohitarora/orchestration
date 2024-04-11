@@ -4,6 +4,7 @@ job "nginx" {
     count = 1
 
     network {
+      mode = "bridge"
       port "http" {
         static = 8080
       }
@@ -18,6 +19,16 @@ job "nginx" {
         path     = "/"
         interval = "2s"
         timeout  = "2s"
+      }
+      connect {
+        sidecar_service {
+          proxy {
+            upstreams {
+              destination_name = "web-svc"
+              local_bind_port  = 5000
+            }
+          }
+        }
       }
     }
 

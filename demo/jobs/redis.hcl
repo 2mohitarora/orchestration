@@ -13,7 +13,7 @@ job "pytechco-redis" {
     service {
       name     = "redis-svc"
       tags = ["redis"]
-      port     = "redis"
+      port     = 6379
       provider = "consul"
       connect {
         sidecar_service {

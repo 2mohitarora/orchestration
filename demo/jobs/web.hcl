@@ -13,7 +13,7 @@ job "pytechco-web" {
     service {
       name     = "web-svc"
       tags = ["python", "web"]
-      port     = "web"
+      port     = 5000
       provider = "consul"
       
       check {
@@ -27,7 +27,7 @@ job "pytechco-web" {
           proxy {
             upstreams {
               destination_name = "redis-svc"
-              local_bind_port  = 8080
+              local_bind_port  = 6379
             }
           }
         }
@@ -40,12 +40,8 @@ job "pytechco-web" {
       # REFRESH_INTERVAL is how often the UI refreshes in milliseconds
       template {
         data        = <<EOH
-{{ range service "redis-svc" }}
-REDIS_HOST={{ .Address }}
-REDIS_PORT={{ .Port }}
 FLASK_HOST=0.0.0.0
 REFRESH_INTERVAL=500
-{{ end }}
 {{ range tree "config/web-svc" }}
 {{ .Key }}={{ .Value }}
 {{ end }}
@@ -59,6 +55,10 @@ EOH
       config {
         image = "ghcr.io/hashicorp-education/learn-nomad-getting-started/ptc-web:1.0"
         ports = ["web"]
+      }
+      env {
+        REDIS_HOST="${NOMAD_UPSTREAM_IP_redis_svc}"
+        REDIS_PORT="${NOMAD_UPSTREAM_PORT_redis_svc}"
       }
     }
   }
