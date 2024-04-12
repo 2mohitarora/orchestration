@@ -25,9 +25,6 @@ job "pytechco-web" {
       connect {
         sidecar_service {
           proxy {
-            config {
-               protocol = "http"
-             }
             upstreams {
               destination_name = "redis-svc"
               local_bind_port  = 6379

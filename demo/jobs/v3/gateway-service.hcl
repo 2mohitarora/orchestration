@@ -2,7 +2,7 @@ job "ingress-gateway" {
   type = "service"
   node_pool = "ingress-gateway"  
   group "ingress-group" {
-    count = 3
+    count = 1
     network {
       mode = "bridge"
       port "inbound" {
@@ -16,7 +16,6 @@ job "ingress-gateway" {
 
       connect {
         gateway {
-          proxy {}  
           ingress {
             listener {
               port     = 8080
