@@ -4,7 +4,7 @@
 # Discuss Updated jobs in v2 folder
 =========================================================================
 # Add proxy defaults
-
+consul config write proxy-defaults.hcl
 =========================================================================
 # Resubmit v2 jobs
 
