@@ -1,3 +1,4 @@
+# Purge nginx job 
 # Prepare for Ingress
 # Now move to v3 folder and resubmit the jobs
 
