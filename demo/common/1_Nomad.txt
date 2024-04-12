@@ -74,7 +74,7 @@ sudo systemctl start nomad
 sudo systemctl status nomad
 //========Setup===============
 //----CNI Plugin only on clients-------
-Install CNI plugin as per https://developer.hashicorp.com/nomad/docs/install#post-installation-steps 
+#Install CNI plugin as per https://developer.hashicorp.com/nomad/docs/install#post-installation-steps 
 
 cd /tmp
 curl -L -o cni-plugins.tgz "https://github.com/containernetworking/plugins/releases/download/v1.0.0/cni-plugins-linux-$( [ $(uname -m) = aarch64 ] && echo arm64 || echo amd64)"-v1.0.0.tgz && \
