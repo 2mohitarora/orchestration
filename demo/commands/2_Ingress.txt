@@ -1,0 +1,3 @@
+# Create 6 more nodes 
+# Install consul with client config 
+
