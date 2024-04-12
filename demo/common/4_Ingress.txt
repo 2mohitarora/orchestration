@@ -1,6 +1,6 @@
-//Only on node 4 in client section
-//Check in UI
 node_pool = "ingress-gateway"
+
+//Check in UI
 
 //Install docker (if not already)
 

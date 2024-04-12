@@ -1,6 +1,5 @@
-//Only on node 4 in client section
-//Check in UI
 node_pool = "java"
+//Check in UI
 
 //Install docker (if not already)
 
