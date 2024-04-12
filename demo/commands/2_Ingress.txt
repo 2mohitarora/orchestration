@@ -1,14 +1,25 @@
-# Install Envoy
-sudo apt update
-sudo apt install apt-transport-https gnupg2 curl lsb-release
-curl -sL 'https://deb.dl.getenvoy.io/public/gpg.8115BA8E629CC074.key' | sudo gpg --dearmor -o /usr/share/keyrings/getenvoy-keyring.gpg
-echo a077cb587a1b622e03aa4bf2f3689de14658a9497a9af2c427bba5f4cc3c4723 /usr/share/keyrings/getenvoy-keyring.gpg | sha256sum --check
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/getenvoy-keyring.gpg] https://deb.dl.getenvoy.io/public/deb/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/getenvoy.list
-sudo apt update
-sudo apt install -y getenvoy-envoy
+# On east-jumbox
+consul config write east-gateway.hcl
+consul config list -kind api-gateway
+consul config read -kind api-gateway -name east-gateway 
+
+# On West-jumpbox
+consul config write west-gateway.hcl
+consul config list -kind api-gateway
+consul config read -kind api-gateway -name west-gateway 
+
 
 # Create east and west gateway nodes 
-# Install consul with client config 
+# Install consul client
 
-consul config write east-gateway.hcl
-consul connect envoy -gateway api -register -service east-api-gateway
+# Install Envoy
+
+
+# Start consul 
+consul connect envoy -gateway api -register -service east-api-gateway -ignore-envoy-compatibility -envoy-binary ~/.func-e/versions/1.27.2/bin/envoy -enable-config-gen-logging
+
+#consul connect envoy -gateway api -ignore-envoy-compatibility -envoy-binary ~/.func-e/versions/1.27.2/bin/envoy -bootstrap > /tmp/bootstrap.json
+#consul services deregister -id east-api-gateway
+#consul force-leave -prune east-ingress-gateway-1
+
+

@@ -27,6 +27,8 @@ sudo resolvectl query java-web-svc.service.consul
 
 # Check Mesh UI (redis-svc, nginx, web-svc, java-web-svc)
 # Take a moment to see cross service mesh working
+# Block java-svc to talk to redis-svc 
+# THIS IS ZERO TRUST FOUNDATION
 ==========================================================================
 Move to Ingress 
 ==========================================================================
