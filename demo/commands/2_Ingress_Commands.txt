@@ -1,35 +1,4 @@
-# On east-jumbox
-consul config write east-gateway.hcl
-consul config list -kind api-gateway
-consul config read -kind api-gateway -name east-gateway 
-consul config delete -kind api-gateway -name east-gateway 
-
-# On West-jumpbox
-consul config write west-gateway.hcl
-consul config list -kind api-gateway
-consul config read -kind api-gateway -name west-gateway 
-
-# Create east and west gateway nodes (NON APPLE MACHINES - USE INTEL)
-
-# Install Envoy
-export ENVOY_VERSION_STRING=1.27.2
-curl -L https://func-e.io/install.sh | sudo bash -s -- -b /usr/local/bin
-export FUNC_E_PLATFORM=darwin/amd64
-func-e use $ENVOY_VERSION_STRING
-func-e run 
-sudo cp ~/.func-e/versions/$ENVOY_VERSION_STRING/bin/envoy /usr/local/bin/
-
-# Install consul client
-
-# Start consul 
-consul connect envoy -gateway api -register -service east-api-gateway -enable-config-gen-logging
-
-========= Troubleshooting ==========
-# consul connect envoy -gateway api -bootstrap > /tmp/bootstrap.json
-# consul services deregister -id east-api-gateway
-# consul force-leave -prune east-ingress-gateway-1
-========= Troubleshooting End==========
-
+# Prepare for Ingress
 # Now move to v3 folder and resubmit the jobs
 
 nomad job run -address=http://198.19.249.147:4646 -region=east gateway-service.hcl
