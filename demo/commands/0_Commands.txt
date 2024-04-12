@@ -1,41 +1,30 @@
-nomad job run -address=http://198.19.249.156:4646 -region=east redis.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=east redis.hcl
 
 //Run this from both regions
 sudo resolvectl query redis-svc.service.consul
 sudo resolvectl query redis-svc.service.east.consul
 
 
-nomad job run -address=http://198.19.249.156:4646 -region=west redis.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=west redis.hcl
 
 //Run this from both regions
 sudo resolvectl query redis-svc.service.consul
 sudo resolvectl query redis-svc.service.west.consul
 
 
-nomad job run -address=http://198.19.249.156:4646 -region=east web.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=east web.hcl
 
 sudo resolvectl query web-svc.service.consul
 sudo resolvectl query web-svc.service.east.consul
 
-nomad job run -address=http://198.19.249.156:4646 -region=west web.hcl
+nomad job run -address=http://198.19.249.147:4646-region=west web.hcl
 sudo resolvectl query web-svc.service.consul
-
------IGNORE---------
-nomad job run -address=http://198.19.249.156:4646 -region=east setup.hcl
-nomad job dispatch -address=http://198.19.249.156:4646 -region=east -meta budget="200" pytechco-setup
-
-
-nomad job run -address=http://198.19.249.156:4646 -region=west setup.hcl
-nomad job dispatch -address=http://198.19.249.156:4646 -region=west -meta budget="300" pytechco-setup
-
-nomad job run -address=http://198.19.249.156:4646 -region=east employee.hcl
-nomad job run -address=http://198.19.249.156:4646 -region=west employee.hcl
--------IGNORE END----
 
 
 http://198.19.249.51:5000
-nomad job run -address=http://198.19.249.156:4646 -region=east nginx.hcl
-nomad job run -address=http://198.19.249.156:4646 -region=west nginx.hcl
+
+nomad job run -address=http://198.19.249.147:4646 -region=east nginx.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=west nginx.hcl
 
 sudo resolvectl query nginx.service.consul
 
