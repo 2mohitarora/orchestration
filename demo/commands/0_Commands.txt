@@ -17,7 +17,7 @@ nomad job run -address=http://198.19.249.147:4646 -region=east web.hcl
 sudo resolvectl query web-svc.service.consul
 sudo resolvectl query web-svc.service.east.consul
 
-nomad job run -address=http://198.19.249.147:4646-region=west web.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=west web.hcl
 sudo resolvectl query web-svc.service.consul
 
 
