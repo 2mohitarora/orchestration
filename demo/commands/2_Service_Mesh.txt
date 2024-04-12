@@ -1,0 +1,21 @@
+=========================================================================
+# Delete all v1 jobs 
+# Install CNI plugin on Nomad clients 
+# Discuss Updated jobs in v2 folder
+=========================================================================
+# Add proxy defaults
+
+=========================================================================
+# Resubmit v2 jobs
+
+# Interesting observation when it came to service mesh, Java web app couldn't talk to redis without mesh 
+
+# Check Mesh UI (redis-svc, nginx, web-svc, java-web-svc)
+# Take a moment to see cross service mesh working
+# Block java-svc to talk to redis-svc 
+# THIS IS ZERO TRUST FOUNDATION
+
+# Nee research on native=true https://www.hashicorp.com/blog/consul-connect-native-tasks-in-hashicorp-nomad-0-12
+==========================================================================
+Move to Ingress 
+==========================================================================

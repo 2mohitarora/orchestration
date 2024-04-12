@@ -16,6 +16,9 @@ job "ingress-gateway" {
 
       connect {
         gateway {
+          proxy {
+	        connect_timeout = "500ms"
+	      }  
           ingress {
             listener {
               port     = 8080

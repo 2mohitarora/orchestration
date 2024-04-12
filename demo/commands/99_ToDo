@@ -1,0 +1,13 @@
+------TODO------
+#Vault
+#namespaces
+#ingress (API Gateway), egress gateway, terminating gateway and mesh gateway
+#scaling
+    #Jmeter
+#Intentions
+#ACL
+    #Tokens
+    #Policies
+    #Roles 
+    #Auth Methods
+#Metrics 
