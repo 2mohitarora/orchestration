@@ -33,6 +33,10 @@ job "nginx" {
               destination_name = "web-svc"
               local_bind_port  = 5000
             }
+            upstreams {
+              destination_name = "java-web-svc"
+              local_bind_port  = 9090
+            }
           }
         }
       }

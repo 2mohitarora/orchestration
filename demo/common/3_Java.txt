@@ -2,6 +2,7 @@
 //Check in UI
 node_pool = "java"
 
+//Install docker (if not already)
 
 //Install Java
 sudo apt install default-jre
