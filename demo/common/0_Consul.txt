@@ -1,15 +1,17 @@
-sudo apt-get update && sudo apt-get install wget
-
+sudo apt-get update && sudo apt-get install wget gpg coreutils
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt update && sudo apt install consul
+
+sudo apt-get update && sudo apt-get install consul=1.17.3-1
 
 //NOTE You will need to add the newly generated key to the encrypt option in the configuration on all Consul clients and servers.
 consul keygen
 
 //========Server Setup===============
+sudo rm -f /etc/consul.d/consul.hcl /etc/consul.d/consul.env
 sudo touch /etc/consul.d/consul.hcl
 sudo chmod 640 /etc/consul.d/consul.hcl
+sudo vi /etc/consul.d/consul.hcl
 
 datacenter = "east"
 data_dir = "/opt/consul"
@@ -23,6 +25,7 @@ connect {
 -------------
 sudo touch /etc/consul.d/server.hcl
 sudo chmod 640 /etc/consul.d/server.hcl
+sudo vi /etc/consul.d/server.hcl
 
 server = true
 bootstrap_expect = 3
@@ -34,6 +37,7 @@ client_addr = "0.0.0.0"
 ---------------
 sudo touch /etc/consul.d/client.hcl
 sudo chmod 640 /etc/consul.d/client.hcl
+sudo vi /etc/consul.d/client.hcl
 
 bind_addr = "{{ GetInterfaceIP `eth0` }}"
 ---------------Jump boxes-----
@@ -41,6 +45,7 @@ bind_addr = "{{ GetInterfaceIP `eth0` }}"
 sudo apt-get install dnsutils
 sudo mkdir -p /etc/systemd/resolved.conf.d
 sudo touch /etc/systemd/resolved.conf.d/consul.conf
+sudo vi /etc/systemd/resolved.conf.d/consul.conf
 
 [Resolve]
 DNS=127.0.0.1:8600
@@ -64,6 +69,7 @@ sudo resolvectl query consul.service.consul
 
 //Install Service
 sudo touch /etc/systemd/system/consul.service
+sudo vi /etc/systemd/system/consul.service
 
 [Unit]
 Description="HashiCorp Consul - A service mesh solution"
