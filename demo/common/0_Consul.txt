@@ -96,7 +96,6 @@ sudo systemctl enable consul
 sudo systemctl start consul
 //========Server Setup===============
 Join Cluster in the end
-Join cluster over wan  
-//========Client Setup===============
-Join cluster in the end
-//========Client Setup===============
+Join cluster over wan : 
+sudo consul join -wan <IP>
+sudo nomad server join <IP>:4648
