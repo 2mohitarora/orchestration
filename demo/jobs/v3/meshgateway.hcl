@@ -1,5 +1,9 @@
 job "mesh-gateway" {
-  
+  #enable_mesh_gateway_wan_federation (only on servers?)
+  #primary_datacenter
+  #mesh="local"
+  #primary_gateways
+
   type = "service"
   node_pool = "ingress-gateway"  
   

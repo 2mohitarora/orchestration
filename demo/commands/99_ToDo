@@ -19,6 +19,8 @@ Levant - https://github.com/hashicorp/levant
 Traffic Management
     service-resolver, service-splitter, and service-router (Ingress Gateway Level and Mesh Level)
     https://www.hashicorp.com/blog/hashicorp-consul-1-6 
+Failover
+    - https://developer.hashicorp.com/consul/docs/connect/manage-traffic/failover
 Service Mesh
     Master Envoy Configs that can go at ingress and sidecar 
     Rate Limiting: https://developer.hashicorp.com/consul/docs/connect/manage-traffic/limit-request-rates
