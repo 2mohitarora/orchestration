@@ -8,6 +8,8 @@ Transparent proxy
 Cluster Peering vs Federation
     https://www.hashicorp.com/blog/consul-1-13-introduces-cluster-peering
     https://developer.hashicorp.com/consul/docs/connect/cluster-peering 
+Mesh Gateways vs Federation
+    https://developer.hashicorp.com/consul/docs/connect/gateways 
 Vault Integration with Nomad
 Nomad Namespaces
 Nomad packs
@@ -24,7 +26,7 @@ Gateways
     Do we need a load balancer in front of ingress gateway?
     Terminating gateway - https://www.hashicorp.com/blog/expanding-service-mesh-with-terminating-gateways 
     API Gateway (not yet supported natively in nomad) - https://developer.hashicorp.com/consul/docs/connect/gateways/api-gateway/deploy/listeners-vms
-    Egress gateway
+    Egress gateway - Is it same as terminating gateway?
     Mesh gateway
 Application Autoscaling
     https://www.hashicorp.com/blog/hashicorp-nomad-dynamic-application-sizing
@@ -77,7 +79,9 @@ System Jobs
 Eventstream
     https://www.hashicorp.com/blog/building-on-top-of-hashicorp-nomad-s-event-stream 
 DNS
-    ingress.consul domain 
+    ingress.consul domain
+    query.consul domain 
+    Do i need to bind to 53 if we have servicemesh? 
 Rollout strategy
     Canary 
     Multi-region: https://www.hashicorp.com/blog/hashicorp-nomad-multi-cluster-deployment 
@@ -87,6 +91,7 @@ Azure
 Consul sever rate limiting: https://www.hashicorp.com/blog/consul-1-15-adds-envoy-extensions-and-enhances-access-logging
 Consul+ and Enterprise
     https://www.hashicorp.com/blog/announcing-hcp-consul-plus
+Nomad Enterprise 
 
 
 
