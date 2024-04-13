@@ -36,6 +36,7 @@ Cluster Autoscaling
     https://developer.hashicorp.com/nomad/tools/autoscaling
     https://www.hashicorp.com/blog/cluster-scaling-with-the-hashicorp-nomad-autoscaler 
 Intentions
+    In between i thought it worked but when i tried again, it wasnt working 
 ACL
     Tokens
     Policies

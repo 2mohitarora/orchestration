@@ -70,6 +70,17 @@ upstream java-backend {
 
 server {
    listen 8080;
+   server_name  localhost;
+   server_tokens off;
+   gzip on;
+   gzip_proxied any;
+   gzip_comp_level 4;
+   gzip_types text/css application/javascript image/svg+xml;
+   proxy_http_version 1.1;
+   proxy_set_header Upgrade $http_upgrade;
+   proxy_set_header Connection 'upgrade';
+   proxy_set_header Host $host;
+   proxy_cache_bypass $http_upgrade;
    location /actuator/health {
       proxy_pass http://java-backend;
    }
