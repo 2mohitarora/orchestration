@@ -1,4 +1,5 @@
-node_pool = "ingress-gateway"
+# No need to install Nomad or CNI 
+node_pool = "elb"
 
 //Check in UI
 
