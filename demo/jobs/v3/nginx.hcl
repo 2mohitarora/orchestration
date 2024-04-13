@@ -1,7 +1,7 @@
-job "nginx" {
+job "nginx-elb" {
 
   node_pool = "elb"
-  group "nginx" {
+  group "nginx-elb" {
     count = 1
 
     network {
@@ -12,12 +12,12 @@ job "nginx" {
     }
 
     service {
-      name = "nginx"
+      name = "nginx-elb"
       port = "http"
       tags = ["nginx", "elb"]
     }
 
-    task "nginx" {
+    task "nginx-elb" {
       driver = "docker"
       config {
         image = "nginx"
