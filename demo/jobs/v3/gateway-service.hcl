@@ -17,12 +17,7 @@ job "ingress-gateway" {
       port = "inbound"
       tags = ["ingress-gateway", "t2"]
 
-      check {
-        type     = "http"
-        path     = "/"
-        interval = "2s"
-        timeout  = "2s"
-      }
+      #Explore Envoy PassiveHealthCheck - how they can be added
 
       connect {
         gateway {
