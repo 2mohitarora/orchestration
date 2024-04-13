@@ -16,11 +16,7 @@ job "pytechco-redis" {
       port     = 6379
       provider = "consul"
       connect {
-        sidecar_service {
-          proxy {
-            
-          }
-        }
+        sidecar_service {}
       }
     }
 
