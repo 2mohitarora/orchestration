@@ -17,12 +17,20 @@ Nomad Namespaces
 Nomad packs
 Levant - https://github.com/hashicorp/levant
 Traffic Management
-    service-resolver, service-splitter, and service-router (Ingress Gateway Level and Mesh Level)
+    https://developer.hashicorp.com/consul/docs/connect/manage-traffic
+    Service Router -> Service Splitter -> Service Resolver
+        Default service-router passes all routes to the same service
+        Default service-splitter passes 100% of the traffic to the same service
+        Default service-resolver selects all healthy instances from the local Consul Datacenter
+        The results of this Discovery Chain will be pre-calculated in Consul and pushed into Envoy’s dataplane configuration on proxy startup, so as to avoid the need for additional lookups once traffic starts
+flowing through the sidecar proxy. 
     https://www.hashicorp.com/blog/hashicorp-consul-1-6 
 Failover
     - https://developer.hashicorp.com/consul/docs/connect/manage-traffic/failover
 Service Mesh
+    Read this: https://www.datocms-assets.com/2885/1597077859-consul-life-of-a-packet-service-mesh-v11-digital.pdf 
     Master Envoy Configs that can go at ingress and sidecar 
+    VERY IMPORTANT TO UNDERSTAND: https://developer.hashicorp.com/consul/docs/connect/config-entries 
     Rate Limiting: https://developer.hashicorp.com/consul/docs/connect/manage-traffic/limit-request-rates
     Native connect: https://www.hashicorp.com/blog/consul-connect-native-tasks-in-hashicorp-nomad-0-12
 Gateways
@@ -83,6 +91,7 @@ Single Sign on
 Batch Jobs 
 Template Jobs 
 System Jobs 
+    https://www.youtube.com/watch?v=F4MWgqM5FhI
     Run some node agent using system jobs 
 Eventstream
     https://www.hashicorp.com/blog/building-on-top-of-hashicorp-nomad-s-event-stream 
@@ -98,7 +107,9 @@ Azure
     Nomad auto-join 
 Autopilot
     https://developer.hashicorp.com/consul/tutorials/datacenter-operations/autopilot-datacenter-operations
-Consul sever rate limiting: https://www.hashicorp.com/blog/consul-1-15-adds-envoy-extensions-and-enhances-access-logging
+Outage:
+    Consul sever rate limiting: https://www.hashicorp.com/blog/consul-1-15-adds-envoy-extensions-and-enhances-access-logging
+    Recovery: https://developer.hashicorp.com/consul/tutorials/datacenter-operations/recovery-outage-primary 
 Consul+ and Enterprise
     https://www.hashicorp.com/blog/announcing-hcp-consul-plus
 Nomad Enterprise 

@@ -3,20 +3,38 @@
 # Install CNI plugin on Nomad clients 
 # Discuss Updated jobs in v2 folder
 =========================================================================
-# Add proxy defaults
+# Add service defaults (in a separate folder)
 consul config write java-web-svc-defaults.hcl
 consul config write nginx-defaults.hcl
 consul config write redis-svc-defaults.hcl
 consul config write web-svc-defaults.hcl
 =========================================================================
-# Resubmit v2 jobs
+=========================================================================
+# Add east failover defaults (in a separate folder)
+consul config write java-web-svc-resolver.hcl
+consul config write nginx-resolver.hcl
+consul config write redis-svc-resolver.hcl
+consul config write web-svc-resolver.hcl
+=========================================================================
+=========================================================================
+# Add west failover (in a separate folder)
+consul config write java-web-svc-resolver.hcl
+consul config write nginx-resolver.hcl
+consul config write redis-svc-resolver.hcl
+consul config write web-svc-resolver.hcl
+=========================================================================
 
-# Interesting observation when it came to service mesh, Java web app couldn't talk to redis without mesh 
+# Resubmit v2 jobs
 
 # Check Mesh UI (redis-svc, nginx, web-svc, java-web-svc)
 # Take a moment to see cross service mesh working at every layer
 # Block java-svc to talk to redis-svc 
 # THIS IS ZERO TRUST FOUNDATION
+
+# Talk about Router -> Splitter -> Resolver
+# Discuss WCP Situation here
+
+#Failover something and test at this point
 ==========================================================================
 Move to Ingress 
 ==========================================================================
