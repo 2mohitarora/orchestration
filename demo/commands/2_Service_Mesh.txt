@@ -18,7 +18,7 @@ consul config write web-svc-defaults.hcl
 # Block java-svc to talk to redis-svc 
 # THIS IS ZERO TRUST FOUNDATION
 
-# Nee research on native=true https://www.hashicorp.com/blog/consul-connect-native-tasks-in-hashicorp-nomad-0-12
+# Need research on native=true https://www.hashicorp.com/blog/consul-connect-native-tasks-in-hashicorp-nomad-0-12
 ==========================================================================
 Move to Ingress 
 ==========================================================================
