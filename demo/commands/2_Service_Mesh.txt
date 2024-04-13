@@ -17,8 +17,6 @@ consul config write web-svc-defaults.hcl
 # Take a moment to see cross service mesh working
 # Block java-svc to talk to redis-svc 
 # THIS IS ZERO TRUST FOUNDATION
-
-# Need research on native=true https://www.hashicorp.com/blog/consul-connect-native-tasks-in-hashicorp-nomad-0-12
 ==========================================================================
 Move to Ingress 
 ==========================================================================

@@ -1,11 +1,14 @@
 job "ingress-gateway" {
+  
   type = "service"
   node_pool = "ingress-gateway"  
+  
   group "ingress-gateway" {
     count = 3
     network {
       mode = "bridge"
       port "inbound" {
+        static = 8080
         to     = 8080
       }
     }
@@ -13,18 +16,26 @@ job "ingress-gateway" {
     service {
       name = "ingress-gateway"
       port = "inbound"
+      tags = ["ingress-gateway"]
 
       connect {
         gateway {
           proxy {
-	        connect_timeout = "500ms"
-	      }  
+	          connect_timeout = "500ms"
+	        }  
           ingress {
             listener {
               port     = 8080
               protocol = "http"
               service {
                 name = "web-svc"
+              }
+            }
+            listener {
+              port     = 8080
+              protocol = "http"
+              service {
+                name = "java-web-svc"
               }
             }
           }

@@ -1,13 +1,94 @@
-------TODO------
-#Vault
-#namespaces
-#ingress (API Gateway), egress gateway, terminating gateway and mesh gateway
-#scaling
-    #Jmeter
-#Intentions
-#ACL
-    #Tokens
-    #Policies
-    #Roles 
-    #Auth Methods
-#Metrics 
+Write a story on why nomad
+    https://www.hashicorp.com/blog/nomad-kubernetes-a-pragmatic-look-at-choosing-orchestrators
+Cloud Bursting
+    https://www.hashicorp.com/blog/cloud-bursting-with-nomad-and-consul 
+Transparent proxy
+    https://developer.hashicorp.com/consul/docs/k8s/connect/transparent-proxy
+    https://www.hashicorp.com/blog/using-consul-s-transparent-proxy-on-virtual-machines 
+Cluster Peering vs Federation
+    https://www.hashicorp.com/blog/consul-1-13-introduces-cluster-peering
+    https://developer.hashicorp.com/consul/docs/connect/cluster-peering 
+Vault Integration with Nomad
+Nomad Namespaces
+Nomad packs
+Levant - https://github.com/hashicorp/levant
+Traffic Management
+    service-resolver, service-splitter, and service-router
+    https://www.hashicorp.com/blog/hashicorp-consul-1-6 
+Service Mesh
+    Master Envoy Configs that can go at ingress and sidecar 
+    Rate Limiting: https://developer.hashicorp.com/consul/docs/connect/manage-traffic/limit-request-rates
+    Native connect: https://www.hashicorp.com/blog/consul-connect-native-tasks-in-hashicorp-nomad-0-12
+Gateways
+    Ingress Gateway (Is it only to bring traffic to mesh)
+    Do we need a load balancer in front of ingress gateway?
+    Terminating gateway - https://www.hashicorp.com/blog/expanding-service-mesh-with-terminating-gateways 
+    API Gateway (not yet supported natively in nomad) - https://developer.hashicorp.com/consul/docs/connect/gateways/api-gateway/deploy/listeners-vms
+    Egress gateway
+    Mesh gateway
+Application Autoscaling
+    https://www.hashicorp.com/blog/hashicorp-nomad-dynamic-application-sizing
+    Jmeter
+    https://www.hashicorp.com/blog/new-auto-scaling-strategy-with-hashicorp-nomad
+Cluster Autoscaling
+    https://developer.hashicorp.com/nomad/tools/autoscaling
+    https://www.hashicorp.com/blog/cluster-scaling-with-the-hashicorp-nomad-autoscaler 
+Intentions
+ACL
+    Tokens
+    Policies
+    Roles 
+    Auth Methods
+        https://www.hashicorp.com/blog/nomad-jwt-auth-with-github-actions
+Observability
+    Nomad Metrics 
+    Application Logs and Metrics : https://www.hashicorp.com/blog/application-observability-with-hcp-consul-and-datadog 
+    Envoy Access Logs and Metrics 
+    Distributed Tracing
+    Sidecar integration with Prometheus so that metrics are available in Consul UI itself
+    Opentelemetry: https://www.hashicorp.com/blog/improve-observability-with-opentelemetry-and-consul-service-mesh 
+    https://www.hashicorp.com/blog/leveling-up-service-mesh-with-observability-distributed-tracing-for-consul 
+Encryption Everywhere
+    Nomad communication
+    Workload communication (end to end)
+Edge Workload support
+    https://www.hashicorp.com/blog/managing-applications-at-the-edge-with-hashicorp-nomad
+    https://www.hashicorp.com/blog/nomad-1-3-adds-native-service-discovery-and-edge-workload-support
+Command Line
+    How to shell into envoy proxy?
+    Troubleshoot upstream: https://www.hashicorp.com/blog/consul-1-15-adds-envoy-extensions-and-enhances-access-logging 
+    How to shell into container?
+UI
+    How to drain a node?
+    How to restart an allocation?
+    How to restart an entire job?
+    How to restart a task group?
+    How to restart a task?
+CLI
+    Target: https://www.hashicorp.com/blog/target-cli-the-context-switcher-for-hashicorp-tools
+Wasm and Cilium on Nomad
+    https://www.hashicorp.com/blog/nomad-1-6-adds-node-pools-ux-updates-and-more
+Single Sign on
+    https://www.hashicorp.com/blog/nomad-1-5-adds-single-sign-on-and-dynamic-node-metadata
+Batch Jobs 
+Template Jobs 
+System Jobs 
+    Run some node agent using system jobs 
+Eventstream
+    https://www.hashicorp.com/blog/building-on-top-of-hashicorp-nomad-s-event-stream 
+DNS
+    ingress.consul domain 
+Rollout strategy
+    Canary 
+    Multi-region: https://www.hashicorp.com/blog/hashicorp-nomad-multi-cluster-deployment 
+Azure
+    Consul auto-join 
+    Nomad auto-join 
+Consul sever rate limiting: https://www.hashicorp.com/blog/consul-1-15-adds-envoy-extensions-and-enhances-access-logging
+Consul+ and Enterprise
+    https://www.hashicorp.com/blog/announcing-hcp-consul-plus
+
+
+
+
+
