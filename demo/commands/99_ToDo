@@ -9,6 +9,7 @@ Cluster Peering vs Federation
     https://www.hashicorp.com/blog/consul-1-13-introduces-cluster-peering
     https://developer.hashicorp.com/consul/docs/connect/cluster-peering 
 Mesh Gateways vs Federation
+    https://developer.hashicorp.com/consul/docs/connect/gateways/mesh-gateway
     https://developer.hashicorp.com/consul/docs/connect/gateways 
 Vault Integration with Nomad
 Nomad Namespaces
@@ -26,7 +27,6 @@ Gateways
     Do we need a load balancer in front of ingress gateway?
     Terminating gateway - https://www.hashicorp.com/blog/expanding-service-mesh-with-terminating-gateways 
     API Gateway (not yet supported natively in nomad) - https://developer.hashicorp.com/consul/docs/connect/gateways/api-gateway/deploy/listeners-vms
-    Egress gateway - Is it same as terminating gateway?
     Mesh gateway
 Application Autoscaling
     https://www.hashicorp.com/blog/hashicorp-nomad-dynamic-application-sizing
