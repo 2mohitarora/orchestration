@@ -12,7 +12,7 @@ job "nginx" {
     service {
       name = "nginx"
       port = "http"
-      tags = ["nginx", "lb"]
+      tags = ["nginx", "ilb"]
 
       check {
         type     = "http"
@@ -24,12 +24,9 @@ job "nginx" {
 
     task "nginx" {
       driver = "docker"
-
       config {
         image = "nginx"
-
         ports = ["http"]
-
         volumes = [
           "local:/etc/nginx/conf.d",
         ]
@@ -46,13 +43,11 @@ upstream backend {
 
 server {
    listen 8080;
-
    location / {
       proxy_pass http://backend;
    }
 }
 EOF
-
         destination   = "local/load-balancer.conf"
         change_mode   = "signal"
         change_signal = "SIGHUP"

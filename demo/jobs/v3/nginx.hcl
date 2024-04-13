@@ -1,7 +1,6 @@
 job "nginx" {
 
   node_pool = "elb"
-
   group "nginx" {
     count = 1
 
@@ -31,8 +30,10 @@ job "nginx" {
       template {
         data = <<EOF
 upstream backend {
-  server {{ env "NOMAD_UPSTREAM_IP_web_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_web_svc"}};
-}
+{{ range service "ingress-gateway" }}
+  server {{ .Address }}:{{ .Port }};
+{{ else }}server 127.0.0.1:65535; # force a 502
+{{ end }}
 
 server {
    listen 80;
@@ -52,7 +53,6 @@ server {
    }
 }
 EOF
-
         destination   = "local/load-balancer.conf"
         change_mode   = "signal"
         change_signal = "SIGHUP"
