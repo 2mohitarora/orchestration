@@ -14,7 +14,7 @@ consul config write web-svc-defaults.hcl
 # Interesting observation when it came to service mesh, Java web app couldn't talk to redis without mesh 
 
 # Check Mesh UI (redis-svc, nginx, web-svc, java-web-svc)
-# Take a moment to see cross service mesh working
+# Take a moment to see cross service mesh working at every layer
 # Block java-svc to talk to redis-svc 
 # THIS IS ZERO TRUST FOUNDATION
 ==========================================================================

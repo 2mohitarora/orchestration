@@ -1,45 +1,21 @@
 job "nginx" {
 
+  node_pool = "elb"
+
   group "nginx" {
     count = 1
 
     network {
       mode = "bridge"
       port "http" {
-        static = 8080
+        static = 80
       }
     }
 
     service {
       name = "nginx"
       port = "http"
-      tags = ["nginx", "ilb"]
-      check {
-        type     = "http"
-        path     = "/"
-        interval = "2s"
-        timeout  = "2s"
-      }
-      check {
-        type     = "http"
-        path     = "/actuator/health"
-        interval = "2s"
-        timeout  = "2s"
-      }
-      connect {
-        sidecar_service {
-          proxy {
-            upstreams {
-              destination_name = "web-svc"
-              local_bind_port  = 5000
-            }
-            upstreams {
-              destination_name = "java-web-svc"
-              local_bind_port  = 9090
-            }
-          }
-        }
-      }
+      tags = ["nginx", "elb"]
     }
 
     task "nginx" {
@@ -58,12 +34,8 @@ upstream backend {
   server {{ env "NOMAD_UPSTREAM_IP_web_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_web_svc"}};
 }
 
-upstream java-backend {
-  server {{ env "NOMAD_UPSTREAM_IP_java_web_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_java_web_svc"}};
-}
-
 server {
-   listen 8080;
+   listen 80;
    server_name  localhost;
    server_tokens off;
    gzip on;
@@ -75,9 +47,6 @@ server {
    proxy_set_header Connection 'upgrade';
    proxy_set_header Host $host;
    proxy_cache_bypass $http_upgrade;
-   location /actuator/health {
-      proxy_pass http://java-backend;
-   }
    location / {
       proxy_pass http://backend;
    }
