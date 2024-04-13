@@ -17,12 +17,12 @@ job "ingress-gateway" {
       port = "inbound"
       tags = ["ingress-gateway", "t2"]
 
-      #check {
-      #  type     = "http"
-      #  path     = "/"
-      #  interval = "2s"
-      #  timeout  = "2s"
-      #}
+      check {
+        type     = "http"
+        path     = "/"
+        interval = "2s"
+        timeout  = "2s"
+      }
 
       connect {
         gateway {
@@ -37,10 +37,6 @@ job "ingress-gateway" {
                 name = "web-svc"
                 hosts = ["websvc.com"]
               }
-            }
-            listener {
-              port     = 4001
-              protocol = "http"
               service {
                 name = "java-web-svc"
                 hosts = ["javasvc.com"]
