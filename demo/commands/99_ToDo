@@ -2,7 +2,8 @@ Write a story on why nomad
     https://www.hashicorp.com/blog/nomad-kubernetes-a-pragmatic-look-at-choosing-orchestrators
 Cloud Bursting
     https://www.hashicorp.com/blog/cloud-bursting-with-nomad-and-consul 
-Transparent proxy
+Transparent proxy 
+    Not supported for Nomad but supported for VMs and K8s
     https://developer.hashicorp.com/consul/docs/k8s/connect/transparent-proxy
     https://www.hashicorp.com/blog/using-consul-s-transparent-proxy-on-virtual-machines 
 Cluster Peering vs Federation

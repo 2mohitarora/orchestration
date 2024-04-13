@@ -9,3 +9,4 @@ In /etc/vault.d/vault.hcl
     - Uncomment the http listner
 
 sudo systemctl restart vault
+
