@@ -1,9 +1,9 @@
 # Prepare for Ingress
 # Now move to v3 folder and resubmit the jobs
 
-nomad job run -address=http://198.19.249.147:4646 -region=east ig.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=east ingress.hcl
 
-nomad job run -address=http://198.19.249.147:4646 -region=west ig.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=west ingress.hcl
 
 # Once up and running try checking 
 sudo resolvectl query web-svc.ingress.consul
