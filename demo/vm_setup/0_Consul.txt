@@ -4,13 +4,9 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 
 sudo apt-get update && sudo apt-get install consul=1.17.3-1
 
-//NOTE You will need to add the newly generated key to the encrypt option in the configuration on all Consul clients and servers.
-consul keygen
-
 //========Server Setup===============
 sudo rm -f /etc/consul.d/consul.hcl /etc/consul.d/consul.env
 sudo touch /etc/consul.d/consul.hcl
-sudo chmod 640 /etc/consul.d/consul.hcl
 sudo vi /etc/consul.d/consul.hcl
 
 datacenter = "east"
@@ -36,7 +32,6 @@ bind_addr = "{{ GetInterfaceIP `eth0` }}"
 client_addr = "0.0.0.0"
 ---------------
 sudo touch /etc/consul.d/client.hcl
-sudo chmod 640 /etc/consul.d/client.hcl
 sudo vi /etc/consul.d/client.hcl
 
 bind_addr = "{{ GetInterfaceIP `eth0` }}"

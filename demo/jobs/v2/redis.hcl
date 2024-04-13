@@ -17,6 +17,9 @@ job "pytechco-redis" {
       provider = "consul"
       connect {
         sidecar_service {
+          proxy {
+            
+          }
         }
       }
     }
