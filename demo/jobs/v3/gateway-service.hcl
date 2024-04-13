@@ -16,7 +16,14 @@ job "ingress-gateway" {
     service {
       name = "ingress-gateway"
       port = "inbound"
-      tags = ["ingress-gateway"]
+      tags = ["ingress-gateway", "t2"]
+
+      #check {
+      #  type     = "http"
+      #  path     = "/"
+      #  interval = "2s"
+      #  timeout  = "2s"
+      #}
 
       connect {
         gateway {

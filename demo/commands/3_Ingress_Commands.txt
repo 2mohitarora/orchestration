@@ -6,5 +6,5 @@ nomad job run -address=http://198.19.249.147:4646 -region=east gateway-service.h
 nomad job run -address=http://198.19.249.147:4646 -region=west gateway-service.hcl
 
 # Run nginx job in v3 folder so that it fronts the ingress
-nomad job run -address=http://198.19.249.147:4646 -region=east nginx.hcl
-nomad job run -address=http://198.19.249.147:4646 -region=west nginx.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=east nginx-elb.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=west nginx-elb.hcl
