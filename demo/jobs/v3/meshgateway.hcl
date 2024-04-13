@@ -1,6 +1,6 @@
 job "mesh-gateway" {
   #enable_mesh_gateway_wan_federation (only on servers?)
-  #primary_datacenter
+  #primary_datacenter (Everywhere)
   #mesh="local"
   #primary_gateways
 
