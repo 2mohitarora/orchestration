@@ -15,12 +15,6 @@ job "nginx-elb" {
       name = "nginx-elb"
       port = "http"
       tags = ["nginx", "elb", "t1"]
-      #check {
-      #  type     = "http"
-      #  path     = "/"
-      #  interval = "2s"
-      #  timeout  = "2s"
-      #}
     }
 
     task "nginx-elb" {
