@@ -40,6 +40,7 @@ Intentions
 ACL
     Tokens
     Policies
+        - ZERO TRUST by default
     Roles 
     Auth Methods
         https://www.hashicorp.com/blog/nomad-jwt-auth-with-github-actions
