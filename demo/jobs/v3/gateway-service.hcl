@@ -25,17 +25,19 @@ job "ingress-gateway" {
 	        }  
           ingress {
             listener {
-              port     = 8080
+              port     = 5000
               protocol = "http"
               service {
                 name = "web-svc"
+                hosts = ["*.web-svc.com"]
               }
             }
             listener {
-              port     = 8080
+              port     = 9090
               protocol = "http"
               service {
                 name = "java-web-svc"
+                hosts = ["*.java-web-svc.com"]
               }
             }
           }

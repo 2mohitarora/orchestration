@@ -44,12 +44,9 @@ job "nginx" {
 
     task "nginx" {
       driver = "docker"
-
       config {
         image = "nginx"
-
         ports = ["http"]
-
         volumes = [
           "local:/etc/nginx/conf.d",
         ]

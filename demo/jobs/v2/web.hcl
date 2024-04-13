@@ -39,6 +39,7 @@ job "pytechco-web" {
         data        = <<EOH
 FLASK_HOST=0.0.0.0
 REFRESH_INTERVAL=500
+DEBUG_REDIS_DETAILS={{ env "NOMAD_UPSTREAM_IP_redis_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_redis_svc"}}
 {{ range tree "config/web-svc" }}
 {{ .Key }}={{ .Value }}
 {{ end }}

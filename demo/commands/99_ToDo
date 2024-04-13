@@ -15,7 +15,7 @@ Nomad Namespaces
 Nomad packs
 Levant - https://github.com/hashicorp/levant
 Traffic Management
-    service-resolver, service-splitter, and service-router
+    service-resolver, service-splitter, and service-router (Ingress Gateway Level and Mesh Level)
     https://www.hashicorp.com/blog/hashicorp-consul-1-6 
 Service Mesh
     Master Envoy Configs that can go at ingress and sidecar 
@@ -47,7 +47,7 @@ Observability
     Application Logs and Metrics : https://www.hashicorp.com/blog/application-observability-with-hcp-consul-and-datadog 
     Envoy Access Logs and Metrics 
     Distributed Tracing
-    Sidecar integration with Prometheus so that metrics are available in Consul UI itself
+    Sidecar integration with Prometheus so that metrics are available in Consul UI itself - https://developer.hashicorp.com/consul/docs/connect/observability/ui-visualization
     Opentelemetry: https://www.hashicorp.com/blog/improve-observability-with-opentelemetry-and-consul-service-mesh 
     https://www.hashicorp.com/blog/leveling-up-service-mesh-with-observability-distributed-tracing-for-consul 
 Encryption Everywhere
@@ -60,6 +60,7 @@ Command Line
     How to shell into envoy proxy?
     Troubleshoot upstream: https://www.hashicorp.com/blog/consul-1-15-adds-envoy-extensions-and-enhances-access-logging 
     How to shell into container?
+    Trace an end to end reqies flow starting from ingress gateway 
 UI
     How to drain a node?
     How to restart an allocation?
@@ -88,6 +89,8 @@ Rollout strategy
 Azure
     Consul auto-join 
     Nomad auto-join 
+Autopilot
+    https://developer.hashicorp.com/consul/tutorials/datacenter-operations/autopilot-datacenter-operations
 Consul sever rate limiting: https://www.hashicorp.com/blog/consul-1-15-adds-envoy-extensions-and-enhances-access-logging
 Consul+ and Enterprise
     https://www.hashicorp.com/blog/announcing-hcp-consul-plus

@@ -49,6 +49,7 @@ job "java-web" {
       }
       template {
         data = <<EOH
+DEBUG_REDIS_DETAILS={{ env "NOMAD_UPSTREAM_IP_redis_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_redis_svc"}}
 {{ range tree "config/java-web-svc" }}
 {{ .Key }}={{ .Value }}
 {{ end }}
