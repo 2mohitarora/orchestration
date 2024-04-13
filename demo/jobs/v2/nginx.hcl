@@ -55,17 +55,11 @@ job "nginx" {
       template {
         data = <<EOF
 upstream backend {
-{{ range service "web-svc" }}
-  server {{ .Address }}:{{ .Port }};
-{{ else }}server 127.0.0.1:65535; # force a 502
-{{ end }}
+  server {{ env "NOMAD_UPSTREAM_IP_web_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_web_svc"}};
 }
 
 upstream java-backend {
-{{ range service "java-web-svc" }}
-  server {{ .Address }}:{{ .Port }};
-{{ else }}server 127.0.0.1:65535; # force a 502
-{{ end }}
+  server {{ env "NOMAD_UPSTREAM_IP_java_web_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_java_web_svc"}};
 }
 
 server {
