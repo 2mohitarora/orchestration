@@ -9,7 +9,6 @@ job "ingress-gateway" {
       mode = "bridge"
       port "inbound" {
         static = 8080
-        to     = 8080
       }
     }
 
@@ -32,19 +31,19 @@ job "ingress-gateway" {
 	        }  
           ingress {
             listener {
-              port     = 5000
+              port     = 8080
               protocol = "http"
               service {
                 name = "web-svc"
-                hosts = ["*.web-svc.com"]
+                hosts = ["websvc.com"]
               }
             }
             listener {
-              port     = 9090
+              port     = 4001
               protocol = "http"
               service {
                 name = "java-web-svc"
-                hosts = ["*.java-web-svc.com"]
+                hosts = ["javasvc.com"]
               }
             }
           }

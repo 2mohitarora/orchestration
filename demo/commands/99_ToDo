@@ -44,11 +44,13 @@ ACL
     Auth Methods
         https://www.hashicorp.com/blog/nomad-jwt-auth-with-github-actions
 Observability
+    Consul Metrics
     Nomad Metrics 
     Application Logs and Metrics : https://www.hashicorp.com/blog/application-observability-with-hcp-consul-and-datadog 
     Envoy Access Logs and Metrics 
     Distributed Tracing
     Sidecar integration with Prometheus so that metrics are available in Consul UI itself - https://developer.hashicorp.com/consul/docs/connect/observability/ui-visualization
+    https://developer.hashicorp.com/consul/tutorials/get-started-vms/virtual-machine-gs-monitoring 
     Opentelemetry: https://www.hashicorp.com/blog/improve-observability-with-opentelemetry-and-consul-service-mesh 
     https://www.hashicorp.com/blog/leveling-up-service-mesh-with-observability-distributed-tracing-for-consul 
 Encryption Everywhere
