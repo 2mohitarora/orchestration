@@ -1,0 +1,24 @@
+CCM 
+KITT 
+Infiniti
+GSLB 
+Service Mesh 
+Service Discovery
+Service Registry 
+WCNP
+OneOps
+T1
+T2 
+heka 
+admind
+
++ Works for any kind of workload 
++ Works in any cloud 
++ Very light weight 
++ Suitable for edge locations
++ Open source products
+
+- Hashicorp is a public company now 
+- If they change any licensing around their products, we run that risk 
+
+
