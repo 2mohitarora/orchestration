@@ -1,6 +1,5 @@
 =========================================================================
 # Delete all v1 jobs 
-# Install CNI plugin on Nomad clients 
 # Discuss Updated jobs in v2 folder
 =========================================================================
 # Add service defaults (in a separate folder)
