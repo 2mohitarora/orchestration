@@ -7,7 +7,9 @@ job "mesh-gateway" {
     count = 3
     network {
       mode = "bridge"
-      port "mesh_wan" {}
+      port "mesh_wan" {
+        static = 8081  
+      }
     }
 
     service {

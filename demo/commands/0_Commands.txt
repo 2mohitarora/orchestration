@@ -1,3 +1,12 @@
+# Before start running any jobs install gateways 
+
+nomad job run -address=http://198.19.249.147:4646 -region=east meshgateway.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=west meshgateway.hcl
+
+Once gateways are installed, change west consul server config and restart one by one 
+Check if -wan is still working and then proceed to jobs
+
+------------------------------------------
 nomad job run -address=http://198.19.249.147:4646 -region=east redis.hcl
 
 //Run this from both regions
