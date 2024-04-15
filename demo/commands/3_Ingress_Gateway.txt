@@ -1,0 +1,13 @@
+# Prepare for Ingress
+
+nomad job run -address=http://198.19.249.147:4646 -region=east ingress.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=west ingress.hcl
+
+# Once up and running try checking 
+sudo resolvectl query web-svc.ingress.consul
+sudo resolvectl query java-web-svc.ingress.consul
+
+# Run nginx job in v3 folder so that it fronts the ingress
+nomad job run -address=http://198.19.249.147:4646 -region=east nginx-elb.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=west nginx-elb.hcl
+

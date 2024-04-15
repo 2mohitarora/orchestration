@@ -1,18 +1,7 @@
-# Prepare for Ingress
-# Now move to v3 folder and resubmit the jobs
-
-# Once up and running try checking 
-sudo resolvectl query web-svc.ingress.consul
-sudo resolvectl query java-web-svc.ingress.consul
-
-# Run nginx job in v3 folder so that it fronts the ingress
-nomad job run -address=http://198.19.249.147:4646 -region=east nginx-elb.hcl
-nomad job run -address=http://198.19.249.147:4646 -region=west nginx-elb.hcl
+PLEASE NOTE MESH GATEWAY IS ALREADY INSTALLED
 
 ---------MESH GATEWAY STARTS HERE----------------------
-# Ensure the primary datacenter has at least one running, registered mesh gateway with the service metadata key of {"consul-wan-federation":"1"} set.
-
-# Talk about a situation when something doesn't exist in local cluster
+# Talk about a situation when something doesn't exist in local cluster or fail
 
 - Once we have meshgateway enabled, delete java web app from east 
 consul config write no-java-app-in-east.hcl
@@ -44,4 +33,5 @@ consul config write redis-svc-resolver.hcl
 consul config write web-svc-resolver.hcl
 =========================================================================   
 
+Move to terminating gateway
   
