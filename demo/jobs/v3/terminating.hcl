@@ -21,6 +21,9 @@ job "terminating-gateway" {
 	          connect_timeout = "500ms"
 	        }  
           terminating {
+            service {
+              name = "google-svc"
+            }
           }
         }
       }
