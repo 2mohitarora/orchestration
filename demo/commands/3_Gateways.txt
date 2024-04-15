@@ -47,10 +47,6 @@ consul config write redis-svc-resolver.hcl
 consul config write web-svc-resolver.hcl
 =========================================================================
 
-# enable_mesh_gateway_wan_federation (only on servers?)
-# primary_datacenter (Everywhere)
-# mesh="local"
-# primary_gateways
 # https://developer.hashicorp.com/consul/tutorials/developer-mesh/service-mesh-gateways
 # https://developer.hashicorp.com/consul/docs/connect/gateways/mesh-gateway/wan-federation-via-mesh-gateways
 # https://developer.hashicorp.com/consul/docs/connect/gateways/mesh-gateway/service-to-service-traffic-wan-datacenters
