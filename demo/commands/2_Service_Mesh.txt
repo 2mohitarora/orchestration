@@ -12,7 +12,7 @@ consul config write web-svc-defaults.hcl
 
 # Check Mesh UI (redis-svc, nginx, web-svc, java-web-svc)
 # Take a moment to see cross service mesh working at every layer
-# Block java-svc to talk to redis-svc 
+# Block nginx talking to java-web-svc 
 # THIS IS ZERO TRUST FOUNDATION
 
 # Talk about Router -> Splitter -> Resolver
