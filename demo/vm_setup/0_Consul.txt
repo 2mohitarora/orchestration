@@ -49,9 +49,15 @@ WantedBy=multi-user.target
 sudo consul validate /etc/consul.d/
 sudo systemctl enable consul
 sudo systemctl start consul
-//========Server Setup===============
-Join Cluster in the end
-VERY IMPORTANT: Install meshgateway (West will need east gateway IPs)
-Join cluster over wan
-sudo consul join -wan <IP>
-sudo nomad server join <IP>:4648
+=======================
+Join local consul cluster in the end 
+=====================================
+Federation
+Step 1 - Bring up East Consul and Nomad
+Step 2 - Install East Mesh gateway : nomad job run -address=http://<EAST_IP>:4646 -region=east meshgateway.hcl 
+Step 3 - Get East Mesh gateway IP 
+Step 4 - Bring up West Consul and Nomad (East Gateway IPs will be needed in west server config)
+Step 5 - Install West mesh gateway : nomad job run -address=http://<WEST_IP>:4646 -region=west meshgateway.hcl
+Step 6 - Join clusters over wan, from west server : sudo consul join -wan <IP>
+Step 7 - Test : consul members -wan from both east and west consul servers
+Strp 8 - sudo nomad server join <IP>:4648
