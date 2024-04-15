@@ -5,5 +5,5 @@ ui_config {
 }
 client_addr = "0.0.0.0"
 connect {
-  #enable_mesh_gateway_wan_federation = true
+  enable_mesh_gateway_wan_federation = true
 }
