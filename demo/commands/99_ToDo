@@ -107,6 +107,10 @@ Azure
     Nomad auto-join 
 Autopilot
     https://developer.hashicorp.com/consul/tutorials/datacenter-operations/autopilot-datacenter-operations
+Cluster Size
+    How big the cluster can be
+    When should we decide to split the cluster and federate them in same region (Understood about multiple regions from dayone)
+    How can we hide the multiple cluster complexity from application teams
 Outage:
     Consul sever rate limiting: https://www.hashicorp.com/blog/consul-1-15-adds-envoy-extensions-and-enhances-access-logging
     Recovery: https://developer.hashicorp.com/consul/tutorials/datacenter-operations/recovery-outage-primary 
