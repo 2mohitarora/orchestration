@@ -22,7 +22,7 @@ job "mesh-gateway" {
       connect {
         gateway {
           proxy {
-	          connect_timeout = "500ms"
+            connect_timeout = "500ms"
 	        }  
           mesh {
           }

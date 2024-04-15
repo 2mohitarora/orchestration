@@ -61,4 +61,5 @@ Step 5 - Install West mesh gateway : nomad job run -address=http://<WEST_IP>:464
 Step 6 - Join clusters over wan, from west server : sudo consul join -wan <IP>
 Step 7 - Test : consul members -wan from both east and west consul servers
 Step 8 - From servers, curl localhost:8500/v1/catalog/services?dc=<>
-Step 9 - sudo nomad server join <IP>:4648
+Step 9 - Check if UI is working
+Step 10 - sudo nomad server join <IP>:4648
