@@ -14,6 +14,7 @@ nomad job run -address=http://198.19.249.147:4646 -region=east nginx-elb.hcl
 nomad job run -address=http://198.19.249.147:4646 -region=west nginx-elb.hcl
 
 ---------MESH GATEWAY STARTS HERE----------------------
+# Ensure the primary datacenter has at least one running, registered mesh gateway with the service metadata key of {"consul-wan-federation":"1"} set.
 
 # Talk about a situation when something doesn't exist in local cluster
 
@@ -48,7 +49,6 @@ consul config write web-svc-resolver.hcl
 =========================================================================
 
 # enable_mesh_gateway_wan_federation (only on servers?)
-# Ensure the primary datacenter has at least one running, registered mesh gateway with the service metadata key of {"consul-wan-federation":"1"} set.
 # primary_datacenter (Everywhere)
 # mesh="local"
 # primary_gateways
