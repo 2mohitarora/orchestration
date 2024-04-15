@@ -1,15 +1,5 @@
 job "mesh-gateway" {
   
-  # enable_mesh_gateway_wan_federation (only on servers?)
-  # Ensure the primary datacenter has at least one running, registered mesh gateway with the service metadata key of {"consul-wan-federation":"1"} set.
-  # primary_datacenter (Everywhere)
-  # mesh="local"
-  # primary_gateways
-  # https://developer.hashicorp.com/consul/tutorials/developer-mesh/service-mesh-gateways
-  # https://developer.hashicorp.com/consul/docs/connect/gateways/mesh-gateway/wan-federation-via-mesh-gateways
-  # https://developer.hashicorp.com/consul/docs/connect/gateways/mesh-gateway/service-to-service-traffic-wan-datacenters
-   
-
   type = "service"
   node_pool = "ingress-gateway"  
   
@@ -17,17 +7,18 @@ job "mesh-gateway" {
     count = 3
     network {
       mode = "bridge"
-      port "mesh" {
-        static = 8081
+      port "mesh_wan" {
+        # A mesh gateway will require a host_network configured for at least one
+        # Nomad client that can establish cross-datacenter connections. Nomad will
+        # automatically schedule the mesh gateway task on compatible Nomad clients.
+        host_network = "public"
       }
     }
 
     service {
       name = "mesh-gateway"
-      port = "mesh"
+      port = "mesh_wan"
       tags = ["mesh-gateway"]
-
-      #Explore Envoy PassiveHealthCheck - how they can be added
 
       connect {
         gateway {
