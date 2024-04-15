@@ -8,15 +8,7 @@ job "mesh-gateway" {
   # https://developer.hashicorp.com/consul/tutorials/developer-mesh/service-mesh-gateways
   # https://developer.hashicorp.com/consul/docs/connect/gateways/mesh-gateway/wan-federation-via-mesh-gateways
   # https://developer.hashicorp.com/consul/docs/connect/gateways/mesh-gateway/service-to-service-traffic-wan-datacenters
-  # Another useful example of leveraging a service-resolver configuration would be to expose services in the local Consul Datacenter, but redirect them to a given service in a remote federated Consul Datacenter:
-  #This example will redirect all traffic destined for service “web-dc2” in the local Consul Datacenter to the service “web” in the remote Consul Datacenter “dc2.”
-    # kind = “service-resolver”
-    # name = “web-dc2”
-    # redirect {
-    # service = “web”
-    # data center = “dc2”
-    #}
-
+   
 
   type = "service"
   node_pool = "ingress-gateway"  
