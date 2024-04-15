@@ -63,3 +63,5 @@ Step 7 - Test : consul members -wan from both east and west consul servers
 Step 8 - From servers, curl localhost:8500/v1/catalog/services?dc=<>
 Step 9 - Check if UI is working
 Step 10 - sudo nomad server join <IP>:4648
+
+(Pending step: Consul Servers WAN federation gossip should also go via Mesh Gateway, its either 1.8 feature or TLS is required)

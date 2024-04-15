@@ -42,11 +42,6 @@ consul config write java-web-svc-resolver.hcl
 consul config write nginx-resolver.hcl
 consul config write redis-svc-resolver.hcl
 consul config write web-svc-resolver.hcl
-=========================================================================
-
-# https://developer.hashicorp.com/consul/tutorials/developer-mesh/service-mesh-gateways
-# https://developer.hashicorp.com/consul/docs/connect/gateways/mesh-gateway/wan-federation-via-mesh-gateways
-# https://developer.hashicorp.com/consul/docs/connect/gateways/mesh-gateway/service-to-service-traffic-wan-datacenters
-   
+=========================================================================   
 
   
