@@ -5,36 +5,9 @@ sudo apt-get update && sudo apt-get install nomad
 sudo rm -f /etc/nomad.d/nomad.hcl
 sudo touch /etc/nomad.d/nomad.hcl
 sudo vi /etc/nomad.d/nomad.hcl
--------------------------------
-data_dir  = "/opt/nomad/data"
-bind_addr = "0.0.0.0"
-datacenter = "east-1"
-region = "east"
 
-# Enable the server
-server {
-  enabled = true
-  bootstrap_expect = 3
-}
-consul {
-  address = "127.0.0.1:8500"
-}
----------------------------
-data_dir  = "/opt/nomad/data"
-bind_addr = "0.0.0.0"
-datacenter = "east-1"
-region = "east"
-# Enable the server
-client {
-  enabled = true
-  options {
-    "driver.raw_exec.enable"    = "1"
-    "docker.privileged.enabled" = "true"
-  }
-}
-consul {
-  address = "127.0.0.1:8500"
-}
+# Copy server or client file from appropriate directory
+
 ---------------------------
 //Install Service
 sudo touch /etc/systemd/system/nomad.service

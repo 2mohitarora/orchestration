@@ -1,0 +1,24 @@
+//DNS Magic 
+sudo apt-get install dnsutils
+sudo mkdir -p /etc/systemd/resolved.conf.d
+sudo touch /etc/systemd/resolved.conf.d/consul.conf
+sudo vi /etc/systemd/resolved.conf.d/consul.conf
+
+[Resolve]
+DNS=127.0.0.1:8600
+DNSSEC=false
+Domains=~consul
+
+
+//Will this survive reboot
+sudo systemctl restart systemd-resolved
+
+//if error
+sudo systemctl unmask systemd-resolved
+sudo systemctl restart systemd-resolved
+
+//Test
+sudo systemctl is-active systemd-resolved
+sudo resolvectl status
+sudo resolvectl domain
+sudo resolvectl query consul.service.consul

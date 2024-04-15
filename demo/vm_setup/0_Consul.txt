@@ -4,63 +4,23 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://
 
 sudo apt-get update && sudo apt-get install consul=1.17.3-1
 
-//========Server Setup===============
+//========Common Consul Setup===============
 sudo rm -f /etc/consul.d/consul.hcl /etc/consul.d/consul.env
 sudo touch /etc/consul.d/consul.hcl
 sudo vi /etc/consul.d/consul.hcl
 
-datacenter = "east"
-data_dir = "/opt/consul"
-encrypt = "4Ox5PVb2MKOGsYSC3WKH6mFHH22g6nR12NRoWJ5zJps="
-ports {
-  grpc = 8502
-}
-connect {
-  enabled = true
-}
--------------
+# Copy consul.hcl from appropriate folder 
+
+-------------Extra setup only for server-----------
 sudo touch /etc/consul.d/server.hcl
 sudo chmod 640 /etc/consul.d/server.hcl
 sudo vi /etc/consul.d/server.hcl
 
-server = true
-bootstrap_expect = 3
-ui_config {
-  enabled = true
-}
-bind_addr = "{{ GetInterfaceIP `eth0` }}"
-client_addr = "0.0.0.0"
----------------
-sudo touch /etc/consul.d/client.hcl
-sudo vi /etc/consul.d/client.hcl
+# Copy server.hcl from appropriate folder 
 
-bind_addr = "{{ GetInterfaceIP `eth0` }}"
 ---------------Jump boxes-----
-//DNS Magic 
-sudo apt-get install dnsutils
-sudo mkdir -p /etc/systemd/resolved.conf.d
-sudo touch /etc/systemd/resolved.conf.d/consul.conf
-sudo vi /etc/systemd/resolved.conf.d/consul.conf
-
-[Resolve]
-DNS=127.0.0.1:8600
-DNSSEC=false
-Domains=~consul
-
-
-//Will this survive reboot
-sudo systemctl restart systemd-resolved
-
-//if error
-sudo systemctl unmask systemd-resolved
-sudo systemctl restart systemd-resolved
-
-//Test
-sudo systemctl is-active systemd-resolved
-sudo resolvectl status
-sudo resolvectl domain
-sudo resolvectl query consul.service.consul
----------------
+Jump box setup if applicable
+------------------------------
 
 //Install Service
 sudo touch /etc/systemd/system/consul.service

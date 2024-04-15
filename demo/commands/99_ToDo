@@ -36,11 +36,12 @@ Service Mesh
     Rate Limiting: https://developer.hashicorp.com/consul/docs/connect/manage-traffic/limit-request-rates
     Native connect: https://www.hashicorp.com/blog/consul-connect-native-tasks-in-hashicorp-nomad-0-12
 Gateways
-    Ingress Gateway (Is it only to bring traffic to mesh)
     Do we need a load balancer in front of ingress gateway?
     Terminating gateway - https://www.hashicorp.com/blog/expanding-service-mesh-with-terminating-gateways 
     API Gateway (not yet supported natively in nomad) - https://developer.hashicorp.com/consul/docs/connect/gateways/api-gateway/deploy/listeners-vms
     Mesh gateway
+        - https://developer.hashicorp.com/consul/docs/connect/gateways/mesh-gateway/service-to-service-traffic-wan-datacenters
+        - 
 Application Autoscaling
     https://www.hashicorp.com/blog/hashicorp-nomad-dynamic-application-sizing
     Jmeter
