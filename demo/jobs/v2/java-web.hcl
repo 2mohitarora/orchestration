@@ -17,10 +17,7 @@ job "java-web" {
       port     = "http"
       provider = "consul"
       tags = ["java", "web"]
-      meta {
-          meta = "Java service running directly on VM"
-      }
-
+      
       check {
         type     = "http"
         path     = "/actuator/health"
