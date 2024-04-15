@@ -18,10 +18,9 @@ sudo resolvectl query web-svc.service.consul
 sudo resolvectl query web-svc.service.east.consul
 
 nomad job run -address=http://198.19.249.147:4646 -region=west web.hcl
-sudo resolvectl query web-svc.service.consul
 
-
-http://198.19.249.51:5000
+nomad job run -address=http://198.19.249.147:4646 -region=east java-web.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=west java-web.hcl
 
 nomad job run -address=http://198.19.249.147:4646 -region=east nginx.hcl
 nomad job run -address=http://198.19.249.147:4646 -region=west nginx.hcl
@@ -39,7 +38,7 @@ sudo resolvectl query nginx.query.consul
 
 -------KV
 Using UI enter a key value for config/web-svc/key
-- consul kv get config/web-svc/key 
-- consul kv put config/web-svc/rgion west
+Using UI enter a key value for config/java-web-svc/key
 
+# Reallocate redis and see how job restarts 
 
