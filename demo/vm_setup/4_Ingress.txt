@@ -1,7 +1,2 @@
 node_pool = "ingress-gateway"
 
-//Check in UI
-
-//Install docker (if not already)
-
-

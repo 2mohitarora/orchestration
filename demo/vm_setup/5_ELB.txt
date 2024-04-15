@@ -1,7 +1,1 @@
 node_pool = "elb"
-
-//Check in UI
-
-//Install docker (if not already)
-
-# This one essentially shouldn't be managed by Consul and Nginx (may be??)
