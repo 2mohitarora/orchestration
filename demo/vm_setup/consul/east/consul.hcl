@@ -5,7 +5,4 @@ encrypt = "4Ox5PVb2MKOGsYSC3WKH6mFHH22g6nR12NRoWJ5zJps="
 ports {
   grpc = 8502
 }
-connect {
-  enabled = true
-}
 bind_addr = "{{ GetInterfaceIP `eth0` }}"
