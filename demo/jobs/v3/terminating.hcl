@@ -1,21 +1,21 @@
-job "egress-gateway" {
+job "terminating-gateway" {
   
   type = "service"
   node_pool = "ingress-gateway"  
   
-  group "ingress-gateway" {
+  group "terminating-gateway" {
     count = 3
     network {
       mode = "bridge"
-      port "inbound" {
-        static = 8080
+      port "egress" {
+        static = 8082
       }
     }
 
     service {
-      name = "ingress-gateway"
-      port = "inbound"
-      tags = ["ingress-gateway", "t2"]
+      name = "terminating-gateway"
+      port = "egress"
+      tags = ["terminating-gateway"]
 
       #Explore Envoy PassiveHealthCheck - how they can be added
 
@@ -24,7 +24,7 @@ job "egress-gateway" {
           proxy {
 	          connect_timeout = "500ms"
 	        }  
-          ingress {
+          terminating {
             listener {
               port     = 8080
               protocol = "http"
