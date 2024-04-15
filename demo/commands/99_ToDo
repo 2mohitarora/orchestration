@@ -16,6 +16,8 @@ Vault Integration with Nomad
 Nomad Namespaces
 Nomad packs
 Levant - https://github.com/hashicorp/levant
+Consul k/v gitops
+    - git2consul and https://github.com/hashicorp/consul-replicate/ 
 Traffic Management
     https://developer.hashicorp.com/consul/docs/connect/manage-traffic
     Service Router -> Service Splitter -> Service Resolver
@@ -48,7 +50,14 @@ Cluster Autoscaling
     https://www.hashicorp.com/blog/cluster-scaling-with-the-hashicorp-nomad-autoscaler 
 Intentions
     In between i thought it worked but when i tried again, it wasnt working 
+Consul and Nomad config haredening
+    - retry_join_wan
+    - rettry join
+    - and many more 
 ACL
+    ACL
+        - https://developer.hashicorp.com/consul/tutorials/security/access-control-setup-production 
+        - ACL Replication: https://developer.hashicorp.com/consul/tutorials/security-operations/access-control-replication-multiple-datacenters 
     Tokens
     Policies
         - ZERO TRUST by default
@@ -112,6 +121,7 @@ Cluster Size
     When should we decide to split the cluster and federate them in same region (Understood about multiple regions from dayone)
     How can we hide the multiple cluster complexity from application teams
 Outage:
+    https://developer.hashicorp.com/consul/tutorials/production-deploy/backup-and-restore 
     Consul sever rate limiting: https://www.hashicorp.com/blog/consul-1-15-adds-envoy-extensions-and-enhances-access-logging
     Recovery: https://developer.hashicorp.com/consul/tutorials/datacenter-operations/recovery-outage-primary 
 Consul+ and Enterprise
