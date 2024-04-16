@@ -2,3 +2,19 @@
 
 nomad job run -address=http://198.19.249.147:4646 -region=east terminating.hcl
 nomad job run -address=http://198.19.249.147:4646 -region=west terminating.hcl
+
+
+Advantages:
+
+- External Services only need to whitelist terminating gateway IP
+- Uniformly discover and connect to services residing outside the service mesh, while still providing some of the benefits of a service mesh such as observability, encrypted communication, and access policies governed by intentions.
+- Use cases
+    - External: Cloud Resources including managed databases
+    - Internal: Environment where consul agent can run but service can't be registered on mesh
+    - Internal: Legacy environment where you can't even install the agent. Forget about registering the service on mesh.
+    - Hybrid applications transitioning towards the service mesh but are not there yet 
+    - More use cases here: https://developer.hashicorp.com/consul/tutorials/developer-mesh/service-mesh-terminating-gateways 
+
+Approach
+- Traffic from services in the mesh would flow through their sidecar to the terminating gateway. The gateway will then forward the traffic, potentially unencrypted, to the destination service.
+- To terminate TLS connections, the terminating gateway will present leaf certificates for the services it represents. Internal mesh traffic to the gateway will be encrypted with mTLS and controlled by intentions as expected with Consul service mesh. Intentions reference the source and destination services and do not require knowledge of the gateway itself.
