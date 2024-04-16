@@ -1,5 +1,8 @@
 # Prepare for Ingress
 
+nomad job run -address=http://198.19.249.147:4646 -region=east egress-client.hcl
+nomad job run -address=http://198.19.249.147:4646 -region=west egress-client.hcl
+
 nomad job run -address=http://198.19.249.147:4646 -region=east ingress.hcl
 nomad job run -address=http://198.19.249.147:4646 -region=west ingress.hcl
 

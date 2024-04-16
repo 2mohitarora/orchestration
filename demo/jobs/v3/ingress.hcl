@@ -36,6 +36,10 @@ job "ingress-gateway" {
                 name = "java-web-svc"
                 hosts = ["javasvc.com"]
               }
+              service {
+                name = "egress-svc"
+                hosts = ["egress.com"]
+              }
             }
           }
         }
