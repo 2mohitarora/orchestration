@@ -27,12 +27,12 @@ job "egress-client" {
 
       connect {
         sidecar_service {
-      #    proxy {
-      #      upstreams {
-      #        destination_name = "google-svc"
-      #        local_bind_port  = 8080
-      #      }
-      #    }
+          proxy {
+            upstreams {
+              destination_name = "google-svc"
+              local_bind_port  = 8081
+            }
+          }
         }
       }
     }
@@ -40,7 +40,9 @@ job "egress-client" {
     task "egress-client" {
       template {
         data = <<EOH
-GOOGLE_ADDRESS={{ env "NOMAD_UPSTREAM_IP_google_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_google_svc"}}
+GOOGLE_SERVICE_HOST = "{{ range service "google-svc" }}{{ .Address }}{{ end }}"
+GOOGLE_SERVICE_PORT = "{{ range service "google-svc" }}{{ .Port }}{{ end }}"
+GOOGLE_MESH_ADDRESS={{ env "NOMAD_UPSTREAM_IP_google_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_google_svc"}}
 EOH
         destination = "local/env.txt"
         env = true
