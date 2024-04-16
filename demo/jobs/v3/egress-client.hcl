@@ -21,7 +21,7 @@ job "egress-client" {
       check {
         type     = "http"
         path     = "/check"
-        interval = "2s"
+        interval = "60s"
         timeout  = "1s"
       }
 
