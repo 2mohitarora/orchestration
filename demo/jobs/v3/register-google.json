@@ -1,0 +1,23 @@
+{
+  "Node": "google",
+  "Address": "www.google.com",
+  "NodeMeta": {
+    "external-node": "true",
+    "external-probe": "true"
+  },
+  "Service": {
+    "ID": "google",
+    "Service": "google-svc",
+    "Port": 443
+  },
+  "Checks": [
+    {
+      "Name": "http-check",
+      "status": "passing",
+      "Definition": {
+        "http": "https://www.google.com/",
+        "interval": "30s"
+      }
+    }
+  ]
+}

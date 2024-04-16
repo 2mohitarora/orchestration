@@ -20,19 +20,19 @@ job "egress-client" {
       
       check {
         type     = "http"
-        path     = "/"
+        path     = "/check"
         interval = "2s"
         timeout  = "1s"
       }
 
       connect {
         sidecar_service {
-          proxy {
-            upstreams {
-              destination_name = "google-svc"
-              local_bind_port  = 8080
-            }
-          }
+      #    proxy {
+      #      upstreams {
+      #        destination_name = "google-svc"
+      #        local_bind_port  = 8080
+      #      }
+      #    }
         }
       }
     }

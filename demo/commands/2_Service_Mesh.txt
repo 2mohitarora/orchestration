@@ -7,6 +7,8 @@ consul config write java-web-svc-defaults.hcl
 consul config write nginx-defaults.hcl
 consul config write redis-svc-defaults.hcl
 consul config write web-svc-defaults.hcl
+consul config write google-svc-defaults.hcl
+consul config write egress-svc-defaults.hcl
 =========================================================================
 # Resubmit v2 jobs
 
