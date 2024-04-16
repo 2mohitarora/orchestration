@@ -40,7 +40,7 @@ job "egress-client" {
     task "egress-client" {
       template {
         data = <<EOH
-WEBSITE={{ env "NOMAD_UPSTREAM_IP_google_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_google_svc"}}
+WEBSITE=http://{{ env "NOMAD_UPSTREAM_IP_google_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_google_svc"}}
 EOH
         destination = "local/env.txt"
         env = true
