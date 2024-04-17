@@ -1,3 +1,16 @@
 ====================Prometheus===========================================
 nomad job run -address=http://198.19.249.101:4646 -region=east prometheus.hcl
 nomad job run -address=http://198.19.249.101:4646 -region=west prometheus.hcl
+
+
+//Hit both on port 9090 and check targets
+
+// Both of them should have 13 targets
+
+- Ingress Gateway: 3
+- Web svc : 3
+- Java svc : 1
+- Nginx : 1
+- Redis : 1
+- Egress client : 1
+- Terminating Gateway : 3
