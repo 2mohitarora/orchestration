@@ -16,7 +16,7 @@ job "prometheus" {
     }
 
     ephemeral_disk {
-      size = 30
+      size = 300
     }
 
     task "prometheus" {

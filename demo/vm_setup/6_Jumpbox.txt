@@ -22,3 +22,5 @@ sudo systemctl is-active systemd-resolved
 sudo resolvectl status
 sudo resolvectl domain
 sudo resolvectl query consul.service.consul
+
+# Also configure consul UI separately for prometheus
