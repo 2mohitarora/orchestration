@@ -41,3 +41,14 @@ Using UI enter a key value for config/java-web-svc/key
 
 # Reallocate redis and see how job restarts 
 
+-----Secrets, Talk about it 
+
+{{ with secret "database/creds/accessdb" }}
+    {
+        "host": "$POSTGRES_IP",
+        "port": 5432,
+        "username": "{{ .Data.username }}",
+        "password": {{ .Data.password | toJSON }},
+        "db": "postgres"
+    }
+{{ end }}
