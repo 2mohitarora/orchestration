@@ -5,6 +5,8 @@ curl --request PUT --data @register-google.json localhost:8500/v1/catalog/regist
 nomad job run -address=http://198.19.249.101:4646 -region=east egress-client.hcl
 nomad job run -address=http://198.19.249.101:4646 -region=west egress-client.hcl
 
+-------------ABOVE COMMAND WONT SUCCEED UNTIL NEXT CHAPTER, DONT WORRY-------
+
 nomad job run -address=http://198.19.249.101:4646 -region=east ingress.hcl
 nomad job run -address=http://198.19.249.101:4646 -region=west ingress.hcl
 
