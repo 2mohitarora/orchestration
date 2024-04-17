@@ -1,25 +1,25 @@
-east-control-plane-node1
-east-control-plane-node2
-east-control-plane-node3
-east-data-plane-node1
-east-data-plane-node2
-east-data-plane-node3
-east-data-plane-node4
-east-ingress-gateway-1
-east-ingress-gateway-2
-east-ingress-gateway-3
-east-jumpbox-1
-east-nginx-elb 
+orb create ubuntu east-control-plane-node1
+orb create ubuntu east-control-plane-node2
+orb create ubuntu east-control-plane-node3
+orb create ubuntu east-data-plane-node1
+orb create ubuntu east-data-plane-node2
+orb create ubuntu east-data-plane-node3
+orb create ubuntu east-data-plane-node4
+orb create ubuntu east-ingress-gateway-1
+orb create ubuntu east-ingress-gateway-2
+orb create ubuntu east-ingress-gateway-3
+orb create ubuntu east-jumpbox-1
+orb create ubuntu east-nginx-elb 
 
-west-control-plane-node1
-west-control-plane-node2
-west-control-plane-node3
-west-data-plane-node1
-west-data-plane-node2
-west-data-plane-node3
-west-data-plane-node4
-west-ingress-gateway-1
-west-ingress-gateway-2
-west-ingress-gateway-3
-west-jumpbox-1
-west-nginx-elb 
+orb create ubuntu west-control-plane-node1
+orb create ubuntu west-control-plane-node2
+orb create ubuntu west-control-plane-node3
+orb create ubuntu west-data-plane-node1
+orb create ubuntu west-data-plane-node2
+orb create ubuntu west-data-plane-node3
+orb create ubuntu west-data-plane-node4
+orb create ubuntu west-ingress-gateway-1
+orb create ubuntu west-ingress-gateway-2
+orb create ubuntu west-ingress-gateway-3
+orb create ubuntu west-jumpbox-1
+orb create ubuntu west-nginx-elb 
