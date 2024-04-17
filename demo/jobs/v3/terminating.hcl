@@ -7,6 +7,9 @@ job "terminating-gateway" {
     count = 3
     network {
       mode = "bridge"
+      port "metrics_envoy" {
+        to = 9102
+      }
     }
 
     service {

@@ -8,6 +8,9 @@ job "pytechco-web" {
       port "web" {
         static = 5000
       }
+      port "metrics_envoy" {
+        to = 9102
+      }
     }
 
     service {

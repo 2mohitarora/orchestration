@@ -10,6 +10,9 @@ job "ingress-gateway" {
       port "inbound" {
         static = 8080
       }
+      port "metrics_envoy" {
+        to = 9102
+      }
     }
 
     service {

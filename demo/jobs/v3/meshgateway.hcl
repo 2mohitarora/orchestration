@@ -10,6 +10,9 @@ job "mesh-gateway" {
       port "mesh_wan" {
         static = 8081  
       }
+      port "metrics_envoy" {
+        to = 9102
+      }
     }
 
     service {

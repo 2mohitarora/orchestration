@@ -10,6 +10,9 @@ job "java-web" {
       port "http" {
         static = 9090
       }
+      port "metrics_envoy" {
+        to = 9102
+      }
     }
 
     service {
