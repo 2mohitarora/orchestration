@@ -4,6 +4,7 @@ job "prometheus" {
   group "monitoring" {
     count = 1
     network {
+      mode = "bridge"
       port "prometheus_ui" {
         static = 9090
       }
@@ -30,18 +31,20 @@ global:
   scrape_interval:     5s
   evaluation_interval: 5s
 scrape_configs:
-  - job_name: 'nomad_metrics'
+  - job_name: 'consul-connect-envoy'
     consul_sd_configs:
     - server: '{{ env "NOMAD_IP_prometheus_ui" }}:8500'
-      services: ['nomad-client', 'nomad']
     relabel_configs:
-    - source_labels: ['__meta_consul_tags']
-      regex: '(.*)http(.*)'
+    - source_labels: [__meta_consul_service]
+      regex: (.+)-sidecar-proxy
+      action: drop
+    - source_labels: [__meta_consul_service_metadata_metrics_port_envoy]
+      regex: (.+)
       action: keep
-    scrape_interval: 5s
-    metrics_path: /v1/metrics
-    params:
-      format: ['prometheus']
+    - source_labels: [__address__,__meta_consul_service_metadata_metrics_port_envoy]
+      regex: ([^:]+)(?::\d+)?;(\d+)
+      replacement: ${1}:${2}
+      target_label: __address__
 EOH
       }
 

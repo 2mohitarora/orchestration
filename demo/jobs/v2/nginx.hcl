@@ -14,6 +14,9 @@ job "nginx" {
       name = "nginx"
       port = "http"
       tags = ["nginx", "ilb"]
+      meta {
+        metrics_port_envoy = "${NOMAD_HOST_PORT_metrics_envoy}"
+      }
       check {
         type     = "http"
         path     = "/"

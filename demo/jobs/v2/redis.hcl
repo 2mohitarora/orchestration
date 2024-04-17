@@ -15,6 +15,9 @@ job "pytechco-redis" {
       tags = ["redis"]
       port     = 6379
       provider = "consul"
+      meta {
+        metrics_port_envoy = "${NOMAD_HOST_PORT_metrics_envoy}"
+      }
       connect {
         sidecar_service {}
       }

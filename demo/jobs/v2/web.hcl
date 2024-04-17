@@ -15,7 +15,9 @@ job "pytechco-web" {
       tags = ["python", "web"]
       port     = 5000
       provider = "consul"
-      
+      meta {
+        metrics_port_envoy = "${NOMAD_HOST_PORT_metrics_envoy}"
+      }
       check {
         type     = "http"
         path     = "/"

@@ -17,7 +17,9 @@ job "java-web" {
       port     = "http"
       provider = "consul"
       tags = ["java", "web"]
-      
+      meta {
+        metrics_port_envoy = "${NOMAD_HOST_PORT_metrics_envoy}"
+      }
       check {
         type     = "http"
         path     = "/actuator/health"

@@ -1,6 +1,8 @@
 =========================================================================
 # Delete all v1 jobs 
 # Discuss Updated jobs in v2 folder
+============Write proxy defaults=========================================
+consul config write proxy-defaults.hcl
 ====================Prometheus===========================================
 nomad job run -address=http://198.19.249.147:4646 -region=east prometheus.hcl
 nomad job run -address=http://198.19.249.147:4646 -region=west prometheus.hcl
