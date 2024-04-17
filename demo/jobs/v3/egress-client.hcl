@@ -17,7 +17,9 @@ job "egress-client" {
       port     = "http"
       provider = "consul"
       tags = ["web", "egress-client"]
-      
+      meta {
+        metrics_port_envoy = "${NOMAD_HOST_PORT_metrics_envoy}"
+      }
       check {
         type     = "http"
         path     = "/check"

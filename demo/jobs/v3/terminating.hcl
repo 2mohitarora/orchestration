@@ -12,7 +12,9 @@ job "terminating-gateway" {
     service {
       name = "terminating-gateway"
       tags = ["terminating-gateway"]
-
+      meta {
+        metrics_port_envoy = "${NOMAD_HOST_PORT_metrics_envoy}"
+      }
       #Explore Envoy PassiveHealthCheck - how they can be added
 
       connect {

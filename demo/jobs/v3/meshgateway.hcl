@@ -18,6 +18,7 @@ job "mesh-gateway" {
       tags = ["mesh-gateway"]
       meta {
           consul-wan-federation = "1"
+          metrics_port_envoy = "${NOMAD_HOST_PORT_metrics_envoy}"
       }
       connect {
         gateway {

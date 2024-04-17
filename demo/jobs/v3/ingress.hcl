@@ -16,7 +16,9 @@ job "ingress-gateway" {
       name = "ingress-gateway"
       port = "inbound"
       tags = ["ingress-gateway", "t2"]
-
+      meta {
+        metrics_port_envoy = "${NOMAD_HOST_PORT_metrics_envoy}"
+      }
       #Explore Envoy PassiveHealthCheck - how they can be added
 
       connect {
