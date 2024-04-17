@@ -42,9 +42,11 @@ scrape_configs:
       regex: (.+)
       action: keep
     - source_labels: [__address__,__meta_consul_service_metadata_metrics_port_envoy]
-      regex: ([^:]+)(?::\d+)?;(\d+)
-      replacement: ${1}:${2}
+      separator: "@"
+      regex: (^.*):(.*)@(.*)
+      replacement: $1:$3
       target_label: __address__
+      action: replace
 EOH
       }
 
