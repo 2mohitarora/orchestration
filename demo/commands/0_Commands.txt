@@ -1,37 +1,37 @@
-nomad job run -address=http://198.19.249.147:4646 -region=east redis.hcl
+nomad job run -address=http://198.19.249.101:4646 -region=east redis.hcl
 
 //Run this from both regions
-sudo resolvectl query redis-svc.service.consul
-sudo resolvectl query redis-svc.service.east.consul
+dig @127.0.0.1 -p 8600 redis-svc.service.consul
+dig @127.0.0.1 -p 8600 redis-svc.service.east.consul
 
 
-nomad job run -address=http://198.19.249.147:4646 -region=west redis.hcl
+nomad job run -address=http://198.19.249.101:4646 -region=west redis.hcl
 
 //Run this from both regions
-sudo resolvectl query redis-svc.service.consul
-sudo resolvectl query redis-svc.service.west.consul
+dig @127.0.0.1 -p 8600 redis-svc.service.consul
+dig @127.0.0.1 -p 8600 redis-svc.service.west.consul
 
-nomad job run -address=http://198.19.249.147:4646 -region=east web.hcl
+nomad job run -address=http://198.19.249.101:4646 -region=east web.hcl
 
-sudo resolvectl query web-svc.service.consul
-sudo resolvectl query web-svc.service.east.consul
+dig @127.0.0.1 -p 8600 web-svc.service.consul
+dig @127.0.0.1 -p 8600 web-svc.service.east.consul
 
-nomad job run -address=http://198.19.249.147:4646 -region=west web.hcl
+nomad job run -address=http://198.19.249.101:4646 -region=west web.hcl
 
-nomad job run -address=http://198.19.249.147:4646 -region=east java-web.hcl
-nomad job run -address=http://198.19.249.147:4646 -region=west java-web.hcl
+nomad job run -address=http://198.19.249.101:4646 -region=east java-web.hcl
+nomad job run -address=http://198.19.249.101:4646 -region=west java-web.hcl
 
-nomad job run -address=http://198.19.249.147:4646 -region=east nginx.hcl
-nomad job run -address=http://198.19.249.147:4646 -region=west nginx.hcl
+nomad job run -address=http://198.19.249.101:4646 -region=east nginx.hcl
+nomad job run -address=http://198.19.249.101:4646 -region=west nginx.hcl
 
-sudo resolvectl query nginx.service.consul
+dig @127.0.0.1 -p 8600 nginx.service.consul
 
 curl --request POST --data @payload.json http://127.0.0.1:8500/v1/query
 
-sudo resolvectl query nginx.query.consul
+dig @127.0.0.1 -p 8600 nginx.query.consul
 
 //Stop nginx in one region 
-sudo resolvectl query nginx.query.consul
+dig @127.0.0.1 -p 8600 nginx.query.consul
 //Stop web-svc in one region 
 //Try scaling down and up web-svc 
 
