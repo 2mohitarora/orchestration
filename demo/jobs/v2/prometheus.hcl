@@ -28,8 +28,8 @@ job "prometheus" {
         data = <<EOH
 ---
 global:
-  scrape_interval:     5s
-  evaluation_interval: 5s
+  scrape_interval:     1m
+  evaluation_interval: 1m
 scrape_configs:
   - job_name: 'consul-connect-envoy'
     consul_sd_configs:
