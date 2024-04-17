@@ -5,5 +5,3 @@ ui_config {
     base_url = "http://198.19.249.207:9090"
   }
 }
-client_addr = "0.0.0.0"
-

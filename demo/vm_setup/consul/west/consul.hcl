@@ -6,3 +6,4 @@ ports {
   grpc = 8502
 }
 bind_addr = "{{ GetInterfaceIP `eth0` }}"
+client_addr = "0.0.0.0"

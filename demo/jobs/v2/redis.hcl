@@ -8,6 +8,9 @@ job "pytechco-redis" {
       port "redis" {
         to = 6379
       }
+      port "metrics_envoy" {
+        to = 9102
+      }
     }
 
     service {
