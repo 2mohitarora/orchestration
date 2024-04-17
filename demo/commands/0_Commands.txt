@@ -32,14 +32,16 @@ dig @127.0.0.1 -p 8600 nginx.query.consul
 
 //Stop nginx in one region 
 dig @127.0.0.1 -p 8600 nginx.query.consul
-//Stop web-svc in one region 
-//Try scaling down and up web-svc 
 
--------KV
+//Put nginx back up and Stop web-svc in one region 
+
+//Try scaling down and up web-svc and show dynamic updates 
+
+-------KV Magic
 Using UI enter a key value for config/web-svc/key
 Using UI enter a key value for config/java-web-svc/key
 
-# Reallocate redis and see how job restarts 
+# Reallocate redis and see how jobs fail and then succeed 
 
 -----Secrets, Talk about it 
 
