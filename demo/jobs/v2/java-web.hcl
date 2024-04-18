@@ -8,7 +8,6 @@ job "java-web" {
     network {
       mode = "bridge"
       port "http" {
-        static = 9090
       }
       port "metrics_envoy" {
         to = 9102
@@ -44,8 +43,7 @@ job "java-web" {
 
     task "java-web" {
       env {
-        PORT    = "${NOMAD_PORT_http}"
-        NODE_IP = "${NOMAD_IP_http}"
+        SERVER_PORT = "${NOMAD_PORT_http}"
         SPRING_DATA_REDIS_HOST = "${NOMAD_UPSTREAM_IP_redis_svc}"
         SPRING_DATA_REDIS_PORT = "${NOMAD_UPSTREAM_PORT_redis_svc}"
       }
