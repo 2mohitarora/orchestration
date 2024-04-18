@@ -6,7 +6,6 @@ job "pytechco-web" {
     network {
       mode = "bridge"
       port "web" {
-        static = 5000
       }
       port "metrics_envoy" {
         to = 9102
@@ -16,7 +15,7 @@ job "pytechco-web" {
     service {
       name     = "web-svc"
       tags = ["python", "web"]
-      port     = 5000
+      port     = "web"
       provider = "consul"
       meta {
         metrics_port_envoy = "${NOMAD_HOST_PORT_metrics_envoy}"
@@ -40,10 +39,14 @@ job "pytechco-web" {
     }
 
     task "ptc-web-task" {
+      env {
+        FLASK_HOST="0.0.0.0"
+        FLASK_PORT="${NOMAD_PORT_web}"
+        REDIS_HOST="${NOMAD_UPSTREAM_IP_redis_svc}"
+        REDIS_PORT="${NOMAD_UPSTREAM_PORT_redis_svc}"
+      }
       template {
         data        = <<EOH
-FLASK_HOST=0.0.0.0
-REFRESH_INTERVAL=500
 DEBUG_REDIS_DETAILS={{ env "NOMAD_UPSTREAM_IP_redis_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_redis_svc"}}
 {{ range tree "config/web-svc" }}
 {{ .Key }}={{ .Value }}
@@ -54,14 +57,9 @@ EOH
       }
 
       driver = "docker"
-
       config {
         image = "ghcr.io/hashicorp-education/learn-nomad-getting-started/ptc-web:1.0"
         ports = ["web"]
-      }
-      env {
-        REDIS_HOST="${NOMAD_UPSTREAM_IP_redis_svc}"
-        REDIS_PORT="${NOMAD_UPSTREAM_PORT_redis_svc}"
       }
     }
   }
