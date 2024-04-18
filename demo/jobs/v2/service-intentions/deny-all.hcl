@@ -1,11 +1,8 @@
 Kind = "service-intentions"
-Name = "deny-all"
+Name = "*"
 Sources = [
     {
-        Name =  "*" 
-        Action = "deny"      
-        Permissions = [
-            
-        ]
-    }    
+        Name = "*",
+        Action = "deny"
+    }
 ]
