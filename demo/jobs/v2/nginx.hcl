@@ -6,7 +6,6 @@ job "nginx" {
     network {
       mode = "bridge"
       port "http" {
-        static = 8080
       }
       port "metrics_envoy" {
         to = 9102
@@ -69,7 +68,7 @@ upstream java-backend {
 }
 
 server {
-   listen 8080;
+   listen {{ env "NOMAD_PORT_http"}};
    server_name  localhost;
    server_tokens off;
    gzip on;
