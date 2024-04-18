@@ -8,7 +8,6 @@ job "egress-client" {
     network {
       mode = "bridge"
       port "http" {
-        static = 8080
       }
       port "metrics_envoy" {
         to = 9102
@@ -43,6 +42,9 @@ job "egress-client" {
     }
 
     task "egress-client" {
+      env {
+        SERVER_PORT = "${NOMAD_PORT_http}"
+      }
       template {
         data = <<EOH
 WEBSITE=http://{{ env "NOMAD_UPSTREAM_IP_google_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_google_svc"}}
