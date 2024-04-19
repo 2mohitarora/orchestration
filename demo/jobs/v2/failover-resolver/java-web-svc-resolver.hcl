@@ -2,6 +2,6 @@ Kind = "service-resolver"
 Name = "java-web-svc"
 failover = {
  "*" = {
-        datacenters = ["west"]
+        datacenters = ["west", "east"]
     }
 }

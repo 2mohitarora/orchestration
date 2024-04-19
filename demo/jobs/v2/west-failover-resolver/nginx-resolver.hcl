@@ -1,7 +1,0 @@
-Kind = "service-resolver"
-Name = "nginx"
-failover = {
- "*" = {
-        datacenters = ["east"]
-    }
-}
