@@ -2,6 +2,6 @@ Kind = "service-resolver"
 Name = "nginx"
 failover = {
  "*" = {
-        datacenters = ["west"]
+        datacenters = ["west", "east"]
     }
 }
