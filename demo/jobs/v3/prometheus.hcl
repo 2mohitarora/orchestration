@@ -35,9 +35,6 @@ scrape_configs:
     consul_sd_configs:
     - server: '{{ env "NOMAD_IP_prometheus_ui" }}:8500'
     relabel_configs:
-    - source_labels: [__meta_consul_service]
-      regex: (.+)-sidecar-proxy
-      action: drop
     - source_labels: [__meta_consul_service_metadata_metrics_port_envoy]
       regex: (.+)
       action: keep
