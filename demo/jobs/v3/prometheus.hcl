@@ -35,6 +35,9 @@ scrape_configs:
     consul_sd_configs:
     - server: '{{ env "NOMAD_IP_prometheus_ui" }}:8500'
     relabel_configs:
+    - source_labels: [__meta_consul_service]
+      regex: (.+)-sidecar-proxy
+      action: drop
     - source_labels: [__meta_consul_service_metadata_metrics_port_envoy]
       regex: (.+)
       action: keep
@@ -44,6 +47,10 @@ scrape_configs:
       replacement: $1:$3
       target_label: __address__
       action: replace
+    - source_labels: [__meta_consul_dc]
+      target_label: dc
+    - source_labels: [__meta_consul_service]
+      target_label: service  
 EOH
       }
 
