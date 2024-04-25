@@ -10,6 +10,7 @@ orb create ubuntu east-ingress-gateway-2
 orb create ubuntu east-ingress-gateway-3
 orb create ubuntu east-jumpbox-1
 orb create ubuntu east-nginx-elb 
+===========WEST===========================
 orb create ubuntu west-control-plane-node1
 orb create ubuntu west-control-plane-node2
 orb create ubuntu west-control-plane-node3
