@@ -1,3 +1,5 @@
+Install OrbStack from https://orbstack.dev/
+-------------------------------------------
 orb create ubuntu east-control-plane-node1
 orb create ubuntu east-control-plane-node2
 orb create ubuntu east-control-plane-node3
@@ -23,3 +25,14 @@ orb create ubuntu west-ingress-gateway-2
 orb create ubuntu west-ingress-gateway-3
 orb create ubuntu west-jumpbox-1
 orb create ubuntu west-nginx-elb 
+========================================
+Try Lima
+
+limactl start \
+  --cpus=4 \
+  --memory=8 \
+  --vm-type=vz \
+  --rosetta \
+  --mount-type=virtiofs \
+  --network=vzNAT \
+  --name=control-plane-node1
