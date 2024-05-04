@@ -19,7 +19,8 @@ Check UI after that and see if nginx works
 - Also try same thing for redis and see if it works, redis is TCP
 consul config write no-redis-in-east.hcl
 consul config write redis-svc-resolver.hcl
-
+=========================================================================
+REMOVE MESH GATEWAY ON EAST FIRST AND WEST NEXT AND SEE WHAT HAPPENS
 =========================================================================
 Based on above results add FAILOVER SCENARIOS
 =========================================================================
@@ -27,7 +28,5 @@ consul config write java-web-svc-resolver.hcl
 consul config write nginx-resolver.hcl
 consul config write redis-svc-resolver.hcl
 consul config write web-svc-resolver.hcl
-=========================================================================
-REMOVE MESH GATEWAY AND SEE WHAT HAPPENS
 ===============Move to Ingress gateway=================================
   
