@@ -24,8 +24,7 @@ Traffic Management
         Default service-router passes all routes to the same service
         Default service-splitter passes 100% of the traffic to the same service
         Default service-resolver selects all healthy instances from the local Consul Datacenter
-        The results of this Discovery Chain will be pre-calculated in Consul and pushed into Envoy’s dataplane configuration on proxy startup, so as to avoid the need for additional lookups once traffic starts
-flowing through the sidecar proxy. 
+        The results of this Discovery Chain will be pre-calculated in Consul and pushed into Envoy’s dataplane configuration on proxy startup, so as to avoid the need for additional lookups once traffic starts flowing through the sidecar proxy. 
     https://www.hashicorp.com/blog/hashicorp-consul-1-6 
 Failover
     - https://developer.hashicorp.com/consul/docs/connect/manage-traffic/failover
