@@ -27,6 +27,7 @@ consul config write java-web-svc-resolver.hcl
 consul config write nginx-resolver.hcl
 consul config write redis-svc-resolver.hcl
 consul config write web-svc-resolver.hcl
-
+=========================================================================
+REMOVE MESH GATEWAY AND SEE WHAT HAPPENS
 ===============Move to Ingress gateway=================================
   
