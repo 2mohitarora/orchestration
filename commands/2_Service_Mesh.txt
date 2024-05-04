@@ -31,5 +31,5 @@ Check Service Intentions UI as well
 # Discuss WCP Situation here
 
 ==========================================================================
-Move to Ingress 
+Move to Failover 
 ==========================================================================
