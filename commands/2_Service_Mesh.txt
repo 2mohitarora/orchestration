@@ -7,14 +7,6 @@ consul config write deny-all.hcl
             OR
 consul intention create -deny '*' '*'
 =========================================================================
-# Add proxy default protocol as http for service mesh
-consul config write java-web-svc-defaults.hcl
-consul config write nginx-defaults.hcl
-consul config write redis-svc-defaults.hcl
-consul config write web-svc-defaults.hcl
-consul config write httpforever-svc-defaults.hcl
-consul config write httpforever-client-svc-defaults.hcl
-=========================================================================
 # Resubmit v2 jobs
 
 nomad job run -address=http://198.19.249.101:4646 -region=east redis.hcl
