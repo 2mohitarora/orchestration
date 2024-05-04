@@ -1,10 +1,9 @@
 job "mesh-gateway" {
   
-  type = "service"
+  type = "system"
   node_pool = "gateway"  
   
   group "mesh-gateway" {
-    count = 3
     network {
       mode = "bridge"
       port "mesh_wan" {

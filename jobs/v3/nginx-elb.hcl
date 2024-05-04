@@ -1,11 +1,11 @@
 job "nginx-elb" {
 
   node_pool = "elb"
+  type = "system"
+  
   group "nginx-elb" {
-    count = 1
-
     network {
-      mode = "bridge"
+      mode = "host"
       port "http" {
         static = 80
       }

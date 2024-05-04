@@ -1,10 +1,9 @@
 job "ingress-gateway" {
   
-  type = "service"
+  type = "system"
   node_pool = "gateway"  
   
   group "ingress-gateway" {
-    count = 3
     network {
       mode = "bridge"
       port "inbound" {

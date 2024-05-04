@@ -1,10 +1,9 @@
 job "terminating-gateway" {
   
-  type = "service"
+  type = "system"
   node_pool = "gateway"  
   
   group "terminating-gateway" {
-    count = 3
     network {
       mode = "bridge"
     }
