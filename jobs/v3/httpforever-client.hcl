@@ -1,9 +1,9 @@
-job "egress-client" {
+job "httpforever-client" {
 
   type = "service"
   node_pool = "java"
 
-  group "egress-client" {
+  group "httpforever-client" {
     count = 1
     network {
       mode = "bridge"
@@ -15,10 +15,10 @@ job "egress-client" {
     }
 
     service {
-      name     = "egress-svc"
+      name     = "httpforever-client-svc"
       port     = "http"
       provider = "consul"
-      tags = ["web", "egress-client"]
+      tags = ["web", "httpforever-client"]
       meta {
         metrics_port_envoy = "${NOMAD_HOST_PORT_metrics_envoy}"
       }
@@ -33,7 +33,7 @@ job "egress-client" {
         sidecar_service {
           proxy {
             upstreams {
-              destination_name = "google-svc"
+              destination_name = "httpforever-svc"
               local_bind_port  = 8081
             }
           }
@@ -41,13 +41,13 @@ job "egress-client" {
       }
     }
 
-    task "egress-client" {
+    task "httpforever-client" {
       env {
         SERVER_PORT = "${NOMAD_PORT_http}"
       }
       template {
         data = <<EOH
-WEBSITE=http://{{ env "NOMAD_UPSTREAM_IP_google_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_google_svc"}}
+WEBSITE=http://{{ env "NOMAD_UPSTREAM_IP_httpforever_svc"}}:{{ env "NOMAD_UPSTREAM_PORT_httpforever_svc"}}
 EOH
         destination = "local/env.txt"
         env = true

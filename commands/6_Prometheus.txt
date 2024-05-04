@@ -11,7 +11,7 @@ nomad job run -address=http://198.19.249.101:4646 -region=west prometheus.hcl
 - Java svc : 1
 - Nginx : 1
 - Redis : 1
-- Egress client : 1
+- Httpforever client : 1
 
 
 SSH into container

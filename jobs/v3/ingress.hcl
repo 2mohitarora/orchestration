@@ -36,8 +36,8 @@ job "ingress-gateway" {
                 hosts = ["javasvc.com"]
               }
               service {
-                name = "egress-svc"
-                hosts = ["egress.com"]
+                name = "httpforever-client-svc"
+                hosts = ["httpforeverclient.com"]
               }
             }
           }

@@ -21,7 +21,7 @@ job "terminating-gateway" {
 	        }  
           terminating {
             service {
-              name = "google-svc"
+              name = "httpforever-svc"
             }
           }
         }

@@ -1,3 +1,3 @@
 Kind = "service-defaults"
-Name = "google-svc"
+Name = "httpforever-client-svc"
 Protocol = "http"

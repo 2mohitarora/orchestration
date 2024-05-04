@@ -1,3 +1,3 @@
 Kind = "service-defaults"
-Name = "egress-svc"
+Name = "httpforever-svc"
 Protocol = "http"
