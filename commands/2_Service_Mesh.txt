@@ -31,6 +31,22 @@ Check Service Intentions UI as well
 # Talk about Router -> Splitter -> Resolver
 # Discuss WCP Situation here
 
+=======IF v1 WAS SKIPPED SPEND TIME ON KV AND SECRETS ============
+
+Using UI enter a key value for config/web-svc/key
+Using UI enter a key value for config/java-web-svc/key
+
+-----Secrets, Talk about it -------------
+
+{{ with secret "database/creds/accessdb" }}
+    {
+        "host": "$POSTGRES_IP",
+        "port": 5432,
+        "username": "{{ .Data.username }}",
+        "password": {{ .Data.password | toJSON }},
+        "db": "postgres"
+    }
+{{ end }}
 ==========================================================================
 Move to Failover 
 ==========================================================================
