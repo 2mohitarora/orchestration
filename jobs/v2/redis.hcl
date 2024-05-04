@@ -22,7 +22,13 @@ job "pytechco-redis" {
         metrics_port_envoy = "${NOMAD_HOST_PORT_metrics_envoy}"
       }
       connect {
-        sidecar_service {}
+        sidecar_service {
+          proxy {
+            config {
+              protocol = "tcp"
+            }
+          }
+        }
       }
     }
 
