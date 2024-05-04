@@ -26,18 +26,10 @@ consul config write redis-svc-resolver.hcl
 =========================================================================
 Based on above results add FAILOVER SCENARIOS
 =========================================================================
-# Add east failover defaults (in a separate folder)
 consul config write java-web-svc-resolver.hcl
 consul config write nginx-resolver.hcl
 consul config write redis-svc-resolver.hcl
 consul config write web-svc-resolver.hcl
-=========================================================================
-# Add west failover (in a separate folder)
-consul config write java-web-svc-resolver.hcl
-consul config write nginx-resolver.hcl
-consul config write redis-svc-resolver.hcl
-consul config write web-svc-resolver.hcl
-=========================================================================   
 
-Move to terminating gateway
+===============Move to terminating gateway=================================
   
