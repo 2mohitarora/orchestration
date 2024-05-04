@@ -22,8 +22,9 @@ nomad job run -address=http://198.19.249.101:4646 -region=west nginx.hcl
 
 # Check Mesh UI (redis-svc, nginx, web-svc, java-web-svc)
 # Take a moment to see cross service mesh working at every layer
-# Block nginx talking to java-web-svc 
+
 Run command - consul config list -kind service-intentions
+Check Service Intentions UI as well 
 # THIS IS ZERO TRUST FOUNDATION
 
 # Talk about Router -> Splitter -> Resolver
