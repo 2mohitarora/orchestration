@@ -26,7 +26,7 @@ orb create ubuntu west-gateway-node3
 orb create ubuntu west-jumpbox-1
 orb create ubuntu west-nginx-elb 
 ========================================
-Try Lima
+Try Lima because orbstack license is expired
 
 limactl start \
   --cpus=4 \
