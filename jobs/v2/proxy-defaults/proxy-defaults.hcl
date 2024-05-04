@@ -7,3 +7,6 @@ Config = {
 MeshGateway = {
     mode = "local"
 }
+AccessLogs {
+  Enabled = true
+}
