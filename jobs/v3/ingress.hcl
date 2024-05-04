@@ -1,7 +1,7 @@
 job "ingress-gateway" {
   
   type = "service"
-  node_pool = "ingress-gateway"  
+  node_pool = "gateway"  
   
   group "ingress-gateway" {
     count = 3
