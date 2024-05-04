@@ -18,7 +18,7 @@ admind
 + Suitable for edge locations
 + Open source products
 
-- Hashicorp is a public company now 
+- Hashicorp has been acuired by IBM
 - If they change any licensing around their products, we run that risk 
 
 
