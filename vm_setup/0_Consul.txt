@@ -2,7 +2,7 @@ sudo apt-get update && sudo apt-get install -y wget gpg coreutils
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 
-sudo apt-get update && sudo apt-get install consul=1.17.3-1
+sudo apt-get update && sudo apt-get install -y consul=1.17.3-1
 
 ========Consul Setup===============
 sudo rm -f /etc/consul.d/consul.hcl /etc/consul.d/consul.env
@@ -32,14 +32,13 @@ Federation
 Step 1 - Bring up East Consul and Nomad
 Step 3 - Finish creating the entire east cluster 
 Step 3 - Install East Mesh gateway : nomad job run -address=http://<EAST_IP>:4646 -region=east meshgateway.hcl 
-Step 4 - Get East Mesh gateway IPs (all three of them) 
-Step 5 - Bring up West Consul and Nomad (East Gateway IPs will be needed in west consul server config)
-Step 6 - Finish creating the entire west cluster 
-Step 7 - Install West mesh gateway : nomad job run -address=http://<WEST_IP>:4646 -region=west meshgateway.hcl
-Step 8 - Join clusters over wan, from west server : sudo consul join -wan <IP>
-Step 9 - Test : consul members -wan from both east and west consul servers
-Step 10 - From servers, curl localhost:8500/v1/catalog/services?dc=<>
-Step 11 - Check if UI is working
-Step 12 - sudo nomad server join <IP>:4648
+Step 4 - Bring up West Consul and Nomad
+Step 5 - Finish creating the entire west cluster 
+Step 6 - Install West mesh gateway : nomad job run -address=http://<WEST_IP>:4646 -region=west meshgateway.hcl
+Step 7 - Join clusters over wan, from west server : sudo consul join -wan <IP>
+Step 8 - Test : consul members -wan from both east and west consul servers
+Step 9 - From servers, curl localhost:8500/v1/catalog/services?dc=<>
+Step 10 - Check if UI is working
+Step 11 - sudo nomad server join <IP>:4648
 
 (Pending step: Consul Servers WAN federation gossip should also go via Mesh Gateway, its either 1.8 feature or TLS is required)
