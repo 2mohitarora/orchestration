@@ -6,36 +6,21 @@ sudo apt-get update && sudo apt-get install consul=1.17.3-1
 
 ========Consul Setup===============
 sudo rm -f /etc/consul.d/consul.hcl /etc/consul.d/consul.env
-sudo touch /etc/consul.d/consul.hcl
-sudo vi /etc/consul.d/consul.hcl
+sudo mkdir /etc/consul.d/ssl
 
-# Copy client.hcl or server.hcl from appropriate folder 
-# On server copy consul-agent-ca.pem, server-consul-0-key.pem, server-consul-0.pem from appropriate folder 
-# On client copy consul-agent-ca.pem from appropriate folder 
+Navigate to orchestration/vm_setup/consul/<APPROPRIATE_REGION_DIRECTORY>
+
+-----------Server Setup-----------------------
+sudo cp server.hcl /etc/consul.d/
+sudo cp consul-agent-ca.pem /etc/consul.d/ssl
+sudo cp server-consul-0-key.pem /etc/consul.d/ssl
+sudo cp server-consul-0.pem /etc/consul.d/ssl
+sudo cp consul.service /etc/systemd/system/consul.service
+-----------Client Setup-----------------------
+sudo cp client.hcl /etc/consul.d/
+sudo cp consul-agent-ca.pem /etc/consul.d/ssl
+sudo cp consul.service /etc/systemd/system/consul.service
 ========================================
-//Install Service
-sudo touch /etc/systemd/system/consul.service
-sudo vi /etc/systemd/system/consul.service
-
-[Unit]
-Description="HashiCorp Consul - A service mesh solution"
-Documentation=https://www.consul.io/
-Requires=network-online.target
-After=network-online.target
-ConditionFileNotEmpty=/etc/consul.d/consul.hcl
-
-[Service]
-EnvironmentFile=-/etc/consul.d/consul.env
-ExecStart=/usr/bin/consul agent -config-dir=/etc/consul.d/
-ExecReload=/bin/kill --signal HUP $MAINPID
-KillMode=process
-KillSignal=SIGTERM
-Restart=on-failure
-LimitNOFILE=65536
-
-[Install]
-WantedBy=multi-user.target
-
 //Validate
 sudo consul validate /etc/consul.d/
 sudo systemctl enable consul
