@@ -24,5 +24,5 @@ auto_encrypt {
 server = true
 bootstrap_expect = 3
 connect {
-  enable_mesh_gateway_wan_federation = true
+  #enable_mesh_gateway_wan_federation = true
 }

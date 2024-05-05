@@ -24,6 +24,6 @@ auto_encrypt {
 server = true
 bootstrap_expect = 3
 connect {
-  enable_mesh_gateway_wan_federation = true
+  #enable_mesh_gateway_wan_federation = true
 }
 primary_gateways = [ "east-gateways-node1.orb.local:8081", "east-gateways-node2.orb.local:8081", "east-gateways-node3.orb.local:8081" ]
