@@ -18,3 +18,4 @@ tls {
 auto_encrypt = {
   tls = true
 }
+retry_join = ["west-control-plane-node1.orb.local", "west-control-plane-node2.orb.local", "west-control-plane-node3.orb.local"]
