@@ -1,4 +1,4 @@
 node_pool = "java"
 
 //Install Java
-sudo apt install default-jre
+sudo apt install -y default-jre
