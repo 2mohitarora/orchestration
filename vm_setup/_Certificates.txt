@@ -3,5 +3,5 @@
 # Initiatize the buily in CA
 consul tls ca create
 
-# Create server certificates
+# Create server certificates (-node flag)
 consul tls cert create -server -dc east -additional-dnsname="*.west.consul" -additional-dnsname="*.east.consul" -additional-dnsname="*.server.east.consul" -additional-dnsname="*.server.west.consul"
