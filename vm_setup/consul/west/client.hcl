@@ -7,11 +7,14 @@ ports {
 }
 bind_addr = "{{ GetInterfaceIP `eth0` }}"
 client_addr = "0.0.0.0"
-verify_outgoing = true
-verify_server_hostname = true
-ca_file = "/etc/consul.d/ssl/consul-agent-ca.pem"
-
-verify_incoming = false
+tls {
+  defaults {
+    verify_outgoing = true
+    verify_server_hostname = true
+    ca_file = "/etc/consul.d/ssl/consul-agent-ca.pem"
+    verify_incoming = false
+  }
+}
 auto_encrypt = {
   tls = true
 }
