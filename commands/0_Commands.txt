@@ -1,28 +1,28 @@
-nomad job run -address=http://198.19.249.101:4646 -region=east redis.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=east redis.hcl
 
 //Run this from both regions
 dig @127.0.0.1 -p 8600 redis-svc.service.consul
 dig @127.0.0.1 -p 8600 redis-svc.service.east.consul
 
 
-nomad job run -address=http://198.19.249.101:4646 -region=west redis.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=west redis.hcl
 
 //Run this from both regions
 dig @127.0.0.1 -p 8600 redis-svc.service.consul
 dig @127.0.0.1 -p 8600 redis-svc.service.west.consul
 
-nomad job run -address=http://198.19.249.101:4646 -region=east web.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=east web.hcl
 
 dig @127.0.0.1 -p 8600 web-svc.service.consul
 dig @127.0.0.1 -p 8600 web-svc.service.east.consul
 
-nomad job run -address=http://198.19.249.101:4646 -region=west web.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=west web.hcl
 
-nomad job run -address=http://198.19.249.101:4646 -region=east java-web.hcl
-nomad job run -address=http://198.19.249.101:4646 -region=west java-web.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=east java-web.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=west java-web.hcl
 
-nomad job run -address=http://198.19.249.101:4646 -region=east nginx.hcl
-nomad job run -address=http://198.19.249.101:4646 -region=west nginx.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=east nginx.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=west nginx.hcl
 
 dig @127.0.0.1 -p 8600 nginx.service.consul
 

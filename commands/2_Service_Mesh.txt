@@ -10,15 +10,15 @@ consul intention create -deny '*' '*'
 =========================================================================
 # Resubmit v2 jobs
 
-nomad job run -address=http://198.19.249.101:4646 -region=east redis.hcl
-nomad job run -address=http://198.19.249.101:4646 -region=east web.hcl
-nomad job run -address=http://198.19.249.101:4646 -region=east java-web.hcl
-nomad job run -address=http://198.19.249.101:4646 -region=east nginx.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=east redis.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=east web.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=east java-web.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=east nginx.hcl
 
-nomad job run -address=http://198.19.249.101:4646 -region=west redis.hcl
-nomad job run -address=http://198.19.249.101:4646 -region=west web.hcl
-nomad job run -address=http://198.19.249.101:4646 -region=west java-web.hcl
-nomad job run -address=http://198.19.249.101:4646 -region=west nginx.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=west redis.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=west web.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=west java-web.hcl
+nomad job run -address=http://198.19.249.26:4646 -region=west nginx.hcl
 
 
 # Check Mesh UI (redis-svc, nginx, web-svc, java-web-svc)
