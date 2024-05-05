@@ -1,0 +1,10 @@
+# This is one time setup so that Consul cam use TLS to verify the authenticity of servers and clients.
+
+# Initiatize the buily in CA
+consul tls ca create
+
+# Create east server certificates
+consul tls cert create -server -dc east -additional-dnsname="*.west.consul"
+
+# Create west server certificates
+consul tls cert create -server -dc west -additional-dnsname="*.east.consul"
