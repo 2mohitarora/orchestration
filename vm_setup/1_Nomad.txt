@@ -3,50 +3,25 @@ sudo apt-get update && sudo apt-get install nomad
 
 //========Setup===============
 sudo rm -f /etc/nomad.d/nomad.hcl
-sudo touch /etc/nomad.d/nomad.hcl
-sudo vi /etc/nomad.d/nomad.hcl
 
-# Copy server or client file from appropriate directory
+Navigate to orchestration/vm_setup/nomad/<APPROPRIATE_REGION_DIRECTORY>
 
----------------------------
-//Install Service
-sudo touch /etc/systemd/system/nomad.service
-sudo vi /etc/systemd/system/nomad.service
-
-[Unit]
-Description=Nomad
-Documentation=https://nomadproject.io/docs/
-Wants=network-online.target
-After=network-online.target
-StartLimitIntervalSec=10
-StartLimitBurst=3
-
-# If you are running Consul, please uncomment following Wants/After configs.
-# Assuming your Consul service unit name is "consul"
-Wants=consul.service
-After=consul.service
-
-[Service]
-ExecReload=/bin/kill -HUP $MAINPID
-ExecStart=/usr/bin/nomad agent -config /etc/nomad.d
-KillMode=process
-KillSignal=SIGINT
-LimitNOFILE=infinity
-LimitNPROC=infinity
-Restart=on-failure
-RestartSec=2
-TasksMax=infinity
-
-[Install]
-WantedBy=multi-user.target
-
+-----------Server Setup-----------------------
+sudo cp server.hcl /etc/nomad.d/
+sudo cp nomad.service /etc/systemd/system/nomad.service
+-----------Client Setup-----------------------
+sudo cp client.hcl /etc/nomad.d/
+sudo cp nomad.service /etc/systemd/system/nomad.service
+========================================
 
 //Validate
 sudo systemctl enable nomad
 #Add any node pool tag
 sudo systemctl start nomad
 sudo systemctl status nomad
-//========Setup===============
+
+
+//========Setup required for client nodes===============
 //----CNI Plugin only on clients Install CNI plugin as per https://developer.hashicorp.com/nomad/docs/install#post-installation-steps 
 
 cd /tmp
