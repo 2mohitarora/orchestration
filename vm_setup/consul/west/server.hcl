@@ -25,4 +25,4 @@ bootstrap_expect = 3
 connect {
   enable_mesh_gateway_wan_federation = true
 }
-primary_gateways = [ "198.19.249.240:8081", "198.19.249.19:8081", "198.19.249.177:8081" ]
+primary_gateways = [ "east-gateways-node1.orb.local:8081", "east-gateways-node2.orb.local:8081", "east-gateways-node3.orb.local:8081" ]
