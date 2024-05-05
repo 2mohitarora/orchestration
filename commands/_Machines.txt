@@ -7,10 +7,10 @@ orb create ubuntu east-data-plane-node1
 orb create ubuntu east-data-plane-node2
 orb create ubuntu east-data-plane-node3
 orb create ubuntu east-data-plane-node4
-orb create ubuntu east-gateway-node1
-orb create ubuntu east-gateway-node2
-orb create ubuntu east-gateway-node3
-orb create ubuntu east-jumpbox-1
+orb create ubuntu east-gateways-node1
+orb create ubuntu east-gateways-node2
+orb create ubuntu east-gateways-node3
+orb create ubuntu east-jumpbox
 orb create ubuntu east-nginx-elb 
 ===========WEST===========================
 orb create ubuntu west-control-plane-node1
@@ -20,10 +20,10 @@ orb create ubuntu west-data-plane-node1
 orb create ubuntu west-data-plane-node2
 orb create ubuntu west-data-plane-node3
 orb create ubuntu west-data-plane-node4
-orb create ubuntu west-gateway-node1
-orb create ubuntu west-gateway-node2
-orb create ubuntu west-gateway-node3
-orb create ubuntu west-jumpbox-1
+orb create ubuntu west-gateways-node1
+orb create ubuntu west-gateways-node2
+orb create ubuntu west-gateways-node3
+orb create ubuntu west-jumpbox
 orb create ubuntu west-nginx-elb 
 ========================================
 Try Lima because orbstack license is expired

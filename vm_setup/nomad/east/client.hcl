@@ -2,7 +2,8 @@ data_dir  = "/opt/nomad/data"
 bind_addr = "0.0.0.0"
 datacenter = "east-1"
 region = "east"
-# Enable the server
+
+# Enable the client
 client {
   enabled = true
   options {
