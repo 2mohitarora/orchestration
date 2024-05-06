@@ -2,15 +2,16 @@ CCM
 KITT 
 Infiniti
 GSLB 
-Service Mesh 
+Service Mesh hat cuts across VMs and Containers
 Service Discovery
 Service Registry 
 WCNP
 OneOps
-T1
+T1 can easily discover T2s
 T2 
-heka 
-admind
+Effective Health Checks 
+Failover Capabilities 
+Real time Distributed Updates
 
 + Works for any kind of workload 
 + Works in any cloud 
