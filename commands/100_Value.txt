@@ -2,7 +2,10 @@ CCM
 KITT 
 Infiniti
 GSLB 
-Service Mesh hat cuts across VMs and Containers
+Service Mesh that cuts across VMs and Containers
+Easily extensible to anything running outside mesh 
+Zero Trusy by default
+External services can be onboarded to mesh easily 
 Service Discovery
 Service Registry 
 WCNP
