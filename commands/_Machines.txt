@@ -11,7 +11,7 @@ orb create ubuntu east-gateways-node1
 orb create ubuntu east-gateways-node2
 orb create ubuntu east-gateways-node3
 orb create ubuntu east-jumpbox
-orb create ubuntu east-nginx-elb 
+orb create ubuntu east-elb 
 ===========WEST===========================
 orb create ubuntu west-control-plane-node1
 orb create ubuntu west-control-plane-node2
@@ -24,15 +24,31 @@ orb create ubuntu west-gateways-node1
 orb create ubuntu west-gateways-node2
 orb create ubuntu west-gateways-node3
 orb create ubuntu west-jumpbox
-orb create ubuntu west-nginx-elb 
+orb create ubuntu west-elb 
 ========================================
-Try Lima because orbstack license is expired
-
-limactl start \
-  --cpus=4 \
-  --memory=8 \
-  --vm-type=vz \
-  --rosetta \
-  --mount-type=virtiofs \
-  --network=vzNAT \
-  --name=control-plane-node1
+orb delete -f east-control-plane-node1
+orb delete -f east-control-plane-node2
+orb delete -f east-control-plane-node3
+orb delete -f east-data-plane-node1
+orb delete -f east-data-plane-node2
+orb delete -f east-data-plane-node3
+orb delete -f east-data-plane-node4
+orb delete -f east-gateways-node1
+orb delete -f east-gateways-node2
+orb delete -f east-gateways-node3
+orb delete -f east-jumpbox
+orb delete -f east-elb 
+===========WEST===========================
+orb delete -f west-control-plane-node1
+orb delete -f west-control-plane-node2
+orb delete -f west-control-plane-node3
+orb delete -f west-data-plane-node1
+orb delete -f west-data-plane-node2
+orb delete -f west-data-plane-node3
+orb delete -f west-data-plane-node4
+orb delete -f west-gateways-node1
+orb delete -f west-gateways-node2
+orb delete -f west-gateways-node3
+orb delete -f west-jumpbox
+orb delete -f west-elb 
+========================================
