@@ -12,7 +12,7 @@ job "sample-api" {
 
     service {
       name = "sample-api"
-      port = "9090"
+      port = "http"
 
       connect {
         sidecar_service {

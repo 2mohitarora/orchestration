@@ -23,8 +23,8 @@ job "api-gateway" {
     network {
       mode = "bridge"
       port "http" {
-        static = 8088
-        to     = 8088
+        static = 8443
+        to     = 8443
       }
     }
 
