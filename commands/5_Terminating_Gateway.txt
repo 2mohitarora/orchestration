@@ -7,7 +7,7 @@ nomad job run -address=http://198.19.249.146:4646 -region=east terminating.hcl
 nomad job run -address=http://198.19.249.89:4646 -region=west terminating.hcl
 
 
-nomad job run -address=http://198.19.249.89:4646 -region=east httpforever-client.hcl
+nomad job run -address=http://198.19.249.146:4646 -region=east httpforever-client.hcl
 nomad job run -address=http://198.19.249.89:4646 -region=west httpforever-client.hcl
 
 # Redeploy httpforever-client with a env variable hardcoded
