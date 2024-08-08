@@ -3,12 +3,12 @@ curl --request PUT --data @register-httpforever.json localhost:8500/v1/catalog/r
 
 # In case you need to deregister curl --request PUT --data @deregister.json localhost:8500/v1/catalog/deregister
 
-nomad job run -address=http://198.19.249.146:4646 -region=east terminating.hcl
-nomad job run -address=http://198.19.249.89:4646 -region=west terminating.hcl
+nomad job run -address=http://198.19.249.119:4646 -region=east terminating.hcl
+nomad job run -address=http://198.19.249.119:4646 -region=west terminating.hcl
 
 
-nomad job run -address=http://198.19.249.146:4646 -region=east httpforever-client.hcl
-nomad job run -address=http://198.19.249.89:4646 -region=west httpforever-client.hcl
+nomad job run -address=http://198.19.249.119:4646 -region=east httpforever-client.hcl
+nomad job run -address=http://198.19.249.119:4646 -region=west httpforever-client.hcl
 
 # Redeploy httpforever-client with a env variable hardcoded
 # WEBSITE="https://fast.com"

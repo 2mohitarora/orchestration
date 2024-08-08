@@ -31,10 +31,10 @@ Join local consul cluster in the end
 Federation
 Step 1 - Bring up East Consul and Nomad
 Step 2 - Finish creating the entire east cluster 
-Step 3 - Install East Mesh gateway : nomad job run -address=http://198.19.249.146:4646 -region=east meshgateway.hcl 
+Step 3 - Install East Mesh gateway : nomad job run -address=http://198.19.249.119:4646 -region=east meshgateway.hcl 
 Step 4 - Bring up West Consul and Nomad
 Step 5 - Finish creating the entire west cluster 
-Step 6 - Install West mesh gateway : nomad job run -address=http://198.19.249.136:4646 -region=west meshgateway.hcl
+Step 6 - Install West mesh gateway : nomad job run -address=http://198.19.249.184:4646 -region=west meshgateway.hcl
 Step 7 - Test : consul members -wan from both east and west consul servers
 Step 8 - From servers, curl localhost:8500/v1/catalog/services?dc=<>
 Step 9 - Check if UI is working
