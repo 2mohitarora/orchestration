@@ -20,7 +20,6 @@ Check UI after that and see
 Based on above results add FAILOVER SCENARIOS
 =========================================================================
 consul config write java-web-svc-resolver.hcl
-consul config write nginx-resolver.hcl
 consul config write redis-svc-resolver.hcl
 consul config write web-svc-resolver.hcl
 ===============Move to Ingress gateway=================================
