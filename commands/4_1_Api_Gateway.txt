@@ -1,8 +1,8 @@
-nomad job run -address=http://198.19.249.119:4646 -region=east api-gateway.hcl
-nomad job run -address=http://198.19.249.119:4646 -region=west api-gateway.hcl
+nomad job run -address=http://198.19.249.37:4646 -region=east api-gateway.hcl
+nomad job run -address=http://198.19.249.37:4646 -region=west api-gateway.hcl
 
-nomad job run -address=http://198.19.249.119:4646 -region=east api-gateway-sample-app.hcl
-nomad job run -address=http://198.19.249.119:4646 -region=west api-gateway-sample-app.hcl
+nomad job run -address=http://198.19.249.37:4646 -region=east api-gateway-sample-app.hcl
+nomad job run -address=http://198.19.249.37:4646 -region=west api-gateway-sample-app.hcl
 
 # Add intentions to allow traffic from the API Gateway to <> application.
 

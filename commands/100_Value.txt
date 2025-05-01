@@ -1,3 +1,5 @@
+WCNP
+OneOps
 CCM 
 KITT 
 Infiniti
@@ -8,8 +10,6 @@ Zero Trusy by default
 External services can be onboarded to mesh easily 
 Service Discovery
 Service Registry 
-WCNP
-OneOps
 T1 can easily discover T2s
 T2 
 Effective Health Checks 

@@ -60,7 +60,7 @@ EOH
         
       driver = "java"
       artifact {
-        source      = "https://docs.google.com/uc?export=download&id=1cSuFFZCQKYSnmo7-OUnTBSnm8MmTkxs8"
+        source      = "https://github.com/2mohitarora/test/raw/refs/heads/main/urlshortener-0.0.1-SNAPSHOT.jar"
         mode = "file"
         destination = "local/urlshortener-0.0.1-SNAPSHOT.jar"
       }
