@@ -5,11 +5,10 @@ nomad job run -address=http://198.19.249.37:4646 -region=west prometheus.hcl
 
 //Hit prometheus on port 9090 and check targets
 
-// Both of them should have 7 targets
+// Both of them should have 6 targets
 
 - Web svc : 3
 - Java svc : 1
-- Nginx : 1
 - Redis : 1
 - Httpforever client : 1
 

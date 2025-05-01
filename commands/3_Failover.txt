@@ -1,26 +1,21 @@
 # Talk about a situation when something doesn't exist in local cluster or fail
 
-// Delete java web app from east 
+// Delete redis svc from east 
 // Add redirect rule
-consul config write no-java-app-in-east.hcl
+consul config write no-redis-in-east.hcl
 
-//Check UI after that and see if nginx works
+//Check UI after that 
 
 //Delete the redirect config and add the failover config 
-consul config delete -kind service-resolver  -name java-web-svc
+consul config delete -kind service-resolver  -name redis-svc
 
 //Add Failover config
-consul config write java-web-svc-resolver.hcl
-
-Check UI after that and see if nginx works
-
-//Deploy java-websvc again 
-
-- Also try same thing for redis and see if it works, redis is TCP
-consul config write no-redis-in-east.hcl
 consul config write redis-svc-resolver.hcl
-=========================================================================
-REMOVE MESH GATEWAY ON EAST FIRST AND WEST NEXT AND SEE WHAT HAPPENS
+
+Check UI after that and see 
+
+//Deploy redis-svc again 
+
 =========================================================================
 Based on above results add FAILOVER SCENARIOS
 =========================================================================
