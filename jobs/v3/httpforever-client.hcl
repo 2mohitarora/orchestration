@@ -55,7 +55,7 @@ EOH
         
       driver = "java"
       artifact {
-        source      = "https://docs.google.com/uc?export=download&id=1U2fMVxVLh8BT6xfal748omzHwut02gZJ"
+        source      = "https://github.com/2mohitarora/test/raw/refs/heads/main/spring-boot-send-email-1.0.jar"
         mode = "file"
         destination = "local/spring-boot-send-email-1.0.jar"
       }
