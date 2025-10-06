@@ -2,7 +2,7 @@ job "pytechco-web" {
   type = "service"
 
   group "ptc-web" {
-    count = 3
+    count = 2
     network {
       port "web" {
         static = 5000
